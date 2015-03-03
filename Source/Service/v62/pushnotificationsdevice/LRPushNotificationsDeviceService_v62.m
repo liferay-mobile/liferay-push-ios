@@ -40,9 +40,21 @@
 	return (NSDictionary *)[self.session invoke:_command error:error];
 }
 
-- (void)sendPushNotificationWithToUserId:(long long)toUserId payload:(NSString *)payload error:(NSError **)error {
+- (void)sendPushNotificationWithToUserIds:(NSArray *)toUserIds payload:(NSString *)payload error:(NSError **)error {
 	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-		@"toUserId": @(toUserId),
+		@"toUserIds": toUserIds,
+		@"payload": payload
+	}];
+
+	NSDictionary *_command = @{@"/push-notifications-portlet/pushnotificationsdevice/send-push-notification": _params};
+
+	[self.session invoke:_command error:error];
+}
+
+- (void)sendPushNotificationWithPlatform:(NSString *)platform tokens:(NSArray *)tokens payload:(NSString *)payload error:(NSError **)error {
+	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
+		@"platform": platform,
+		@"tokens": tokens,
 		@"payload": payload
 	}];
 
