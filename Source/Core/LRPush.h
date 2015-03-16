@@ -17,7 +17,7 @@
 /**
  * @author Bruno Farache
  */
-@interface Push : NSObject
+@interface LRPush : NSObject
 
 @property (nonatomic, strong) LRSession *session;
 

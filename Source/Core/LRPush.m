@@ -12,7 +12,7 @@
  * details.
  */
 
-#import "Push.h"
+#import "LRPush.h"
 
 #import "LRPushNotificationsDeviceService_v62.h"
 
@@ -21,17 +21,17 @@ NSString *const IOS = @"ios";
 /**
  * @author Bruno Farache
  */
-@interface Push ()
+@interface LRPush ()
 
 @property (nonatomic, copy) LRFailureBlock failure;
 @property (nonatomic, copy) LRSuccessBlock success;
 
 @end
 
-@implementation Push
+@implementation LRPush
 
 + (instancetype)withSession:(LRSession *)session {
-	return [[Push alloc] initWithSession:session];
+	return [[LRPush alloc] initWithSession:session];
 }
 
 - (id)initWithSession:(LRSession *)session {

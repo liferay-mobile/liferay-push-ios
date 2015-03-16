@@ -13,7 +13,7 @@
  */
 
 #import "BaseTest.h"
-#import "Push.h"
+#import "LRPush.h"
 #import "TRVSMonitor.h"
 
 /**
@@ -31,7 +31,7 @@
 
 	NSString *token = @"token";
 
-	Push *push = [[[Push withSession:self.session]
+	LRPush *push = [[[LRPush withSession:self.session]
 		onSuccess:^(NSDictionary *result) {
 			device = result;
 			[monitor signal];
@@ -56,7 +56,7 @@
 	TRVSMonitor *monitor = [TRVSMonitor monitor];
 	__block NSError *error;
 
-	Push *push = [[[Push withSession:self.session]
+	LRPush *push = [[[LRPush withSession:self.session]
 		onSuccess:^(NSDictionary *result) {
 			[monitor signal];
 		}]
