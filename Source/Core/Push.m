@@ -81,6 +81,12 @@ NSString *const IOS = @"ios";
 - (void)sendToUserId:(long long)userId
 		notification:(NSDictionary *)notification {
 
+	[self sendToUserIds:@[@(userId)] notification:notification];
+}
+
+- (void)sendToUserIds:(NSArray *)userIds
+		notification:(NSDictionary *)notification {
+
 	NSError *error;
 
 	NSData *data = [NSJSONSerialization dataWithJSONObject:notification
@@ -93,7 +99,7 @@ NSString *const IOS = @"ios";
 		[self _onFailure:error];
 	}
 
-	[[self _getService] sendPushNotificationWithToUserId:userId
+	[[self _getService] sendPushNotificationWithToUserIds:userIds
 		payload:payloadString error:&error];
 
 	if (error) {
