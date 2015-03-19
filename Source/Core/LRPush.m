@@ -67,11 +67,17 @@ NSString *const IOS = @"ios";
 	return self;
 }
 
-- (void)registerToken:(NSString *)token {
+- (void)registerDevice {
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+		(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)
+	];
+}
+
+- (void)registerDeviceToken:(NSString *)deviceToken {
 	NSError *error;
 
-	[[self _getService] addPushNotificationsDeviceWithToken:token platform:IOS
-		error:&error];
+	[[self _getService] addPushNotificationsDeviceWithToken:deviceToken
+		platform:IOS error:&error];
 
 	if (error) {
 		[self _onFailure:error];
@@ -107,10 +113,10 @@ NSString *const IOS = @"ios";
 	}
 }
 
-- (void)unregisterToken:(NSString *)token {
+- (void)unregisterDeviceToken:(NSString *)deviceToken {
 	NSError *error;
 
-	[[self _getService] deletePushNotificationsDeviceWithToken:token
+	[[self _getService] deletePushNotificationsDeviceWithToken:deviceToken
 		error:&error];
 
 	if (error) {

@@ -29,7 +29,7 @@
 	__block NSDictionary *device;
 	__block NSError *error;
 
-	NSString *token = @"token";
+	NSString *deviceToken = @"token";
 
 	LRPush *push = [[[LRPush withSession:self.session]
 		onSuccess:^(NSDictionary *result) {
@@ -41,15 +41,15 @@
 			[monitor signal];
 		}];
 
-	[push registerToken:token];
+	[push registerDeviceToken:deviceToken];
 	[monitor wait];
 
-	[self _assert:device token:token error:error];
+	[self _assert:device deviceToken:deviceToken error:error];
 
-	[push unregisterToken:token];
+	[push unregisterDeviceToken:deviceToken];
 	[monitor wait];
 
-	[self _assert:device token:token error:error];
+	[self _assert:device deviceToken:deviceToken error:error];
 }
 
 - (void)testSendPushNotification {
@@ -71,13 +71,13 @@
 	XCTAssertNil(error);
 }
 
-- (void)_assert:(NSDictionary *)device token:(NSString *)token
+- (void)_assert:(NSDictionary *)device deviceToken:(NSString *)deviceToken
 		error:(NSError *)error {
 
 	XCTAssertNil(error);
 	XCTAssertNotNil(device);
 
-	XCTAssertEqualObjects(token, device[@"token"]);
+	XCTAssertEqualObjects(deviceToken, device[@"token"]);
 	XCTAssertEqualObjects(@"ios", device[@"platform"]);
 }
 

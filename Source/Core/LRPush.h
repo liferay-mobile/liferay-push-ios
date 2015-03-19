@@ -25,10 +25,10 @@
 
 - (instancetype)onFailure:(LRFailureBlock)failure;
 - (instancetype)onSuccess:(LRSuccessBlock)success;
-- (void)registerToken:(NSString *)token;
+- (void)registerDeviceToken:(NSString *)deviceToken;
 - (void)sendToUserId:(long long)userId
 	notification:(NSDictionary *)notification;
 
-- (void)unregisterToken:(NSString *)token;
+- (void)unregisterDeviceToken:(NSString *)deviceToken;
 
 @end
