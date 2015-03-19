@@ -85,12 +85,11 @@ NSString *const IOS = @"ios";
 }
 
 - (void)registerDeviceTokenData:(NSData *)deviceTokenData {
-	const unsigned *bytes = [deviceTokenData bytes];
+	const uint64_t *bytes = [deviceTokenData bytes];
 
 	NSString *deviceToken = [NSString
-		stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
-		ntohl(bytes[0]), ntohl(bytes[1]), ntohl(bytes[2]), ntohl(bytes[3]),
-		ntohl(bytes[4]), ntohl(bytes[5]), ntohl(bytes[6]), ntohl(bytes[7])];
+		stringWithFormat:@"%016llx%016llx%016llx%016llx",
+		ntohll(bytes[0]), ntohll(bytes[1]), ntohll(bytes[2]), ntohll(bytes[3])];
 
 	[self registerDeviceToken:deviceToken];
 }
