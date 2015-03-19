@@ -14,9 +14,11 @@
 
 #import "LRPush.h"
 
+#import "LRError.h"
 #import "LRPushNotificationsDeviceService_v62.h"
 
 NSString *const IOS = @"ios";
+NSString *const PAYLOAD = @"payload";
 
 /**
  * @author Bruno Farache
@@ -24,6 +26,7 @@ NSString *const IOS = @"ios";
 @interface LRPush ()
 
 @property (nonatomic, copy) LRFailureBlock failure;
+@property (nonatomic, copy) LRPushNotificationBlock pushNotification;
 @property (nonatomic, copy) LRSuccessBlock success;
 
 @end
@@ -55,8 +58,34 @@ NSString *const IOS = @"ios";
 	return self;
 }
 
+- (void)didReceiveRemoteNotification:(NSDictionary *)pushNotification {
+	NSError *error;
+
+	NSDictionary *payload = [self _parse:pushNotification[PAYLOAD]
+		error:&error];
+
+	if (error) {
+		self.failure(error);
+
+		return;
+	}
+
+	NSMutableDictionary *mutablePushNotification = [NSMutableDictionary
+		dictionaryWithDictionary:pushNotification];
+
+	mutablePushNotification[PAYLOAD] = payload;
+
+	self.pushNotification(mutablePushNotification);
+}
+
 - (instancetype)onFailure:(LRFailureBlock)failure {
 	self.failure = failure;
+
+	return self;
+}
+
+- (instancetype)onPushNotification:(LRPushNotificationBlock)pushNotification {
+	self.pushNotification = pushNotification;
 
 	return self;
 }
@@ -143,6 +172,29 @@ NSString *const IOS = @"ios";
 	if (self.failure) {
 		self.failure(error);
 	}
+}
+
+- (NSDictionary *)_parse:(NSString *)payload error:(NSError **)error {
+	NSData *data = [payload dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *parseError;
+	
+	NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0
+		error:&parseError];
+
+	if (parseError) {
+		NSDictionary *userInfo = @{
+			NSUnderlyingErrorKey: parseError
+		};
+
+		*error = [LRError errorWithCode:LRErrorCodeParse
+			description:@"json-parsing-error" userInfo:userInfo];
+	}
+
+	if (*error) {
+		return nil;
+	}
+
+	return json;
 }
 
 @end

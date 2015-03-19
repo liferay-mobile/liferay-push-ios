@@ -24,6 +24,26 @@
 
 @implementation PushTest
 
+- (void)testPushNotification {
+	NSDictionary *pushNotification = @{
+		@"body": @"message",
+		@"payload": @"{\"hello\": \"world\"}"
+	};
+
+	LRPush *push = [[[LRPush withSession:self.session]
+		onPushNotification:^(NSDictionary *pushNotification) {
+			XCTAssertEqualObjects(@"message", pushNotification[@"body"]);
+
+			NSDictionary *payload = pushNotification[@"payload"];
+			XCTAssertEqualObjects(@"world", payload[@"hello"]);
+		}]
+	 	onFailure:^(NSError *e) {
+			XCTFail(@"Error: %@", [e localizedDescription]);
+		}];
+
+	[push didReceiveRemoteNotification:pushNotification];
+}
+
 - (void)testRegisterDeviceToken {
 	TRVSMonitor *monitor = [TRVSMonitor monitor];
 	__block NSDictionary *device;
