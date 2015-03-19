@@ -26,6 +26,7 @@
 - (instancetype)onFailure:(LRFailureBlock)failure;
 - (instancetype)onSuccess:(LRSuccessBlock)success;
 - (void)registerDeviceToken:(NSString *)deviceToken;
+- (void)registerDeviceTokenData:(NSData *)deviceTokenData;
 - (void)sendToUserId:(long long)userId
 	notification:(NSDictionary *)notification;
 

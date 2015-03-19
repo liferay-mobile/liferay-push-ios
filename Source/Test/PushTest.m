@@ -24,7 +24,7 @@
 
 @implementation PushTest
 
-- (void)testRegister {
+- (void)testRegisterDeviceToken {
 	TRVSMonitor *monitor = [TRVSMonitor monitor];
 	__block NSDictionary *device;
 	__block NSError *error;
@@ -50,6 +50,35 @@
 	[monitor wait];
 
 	[self _assert:device deviceToken:deviceToken error:error];
+}
+
+- (void)testRegisterDeviceTokenData {
+	TRVSMonitor *monitor = [TRVSMonitor monitor];
+	__block NSDictionary *device;
+	__block NSError *error;
+
+	NSString *deviceToken = @"<740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d " \
+		"a5ddb387 462c7eaf 61bb78ad>";
+
+	NSData *deviceTokenData = [self _dataFromHexString:deviceToken];
+
+	LRPush *push = [[[LRPush withSession:self.session]
+		onSuccess:^(NSDictionary *result) {
+			device = result;
+			[monitor signal];
+		}]
+	 	onFailure:^(NSError *e) {
+			error = e;
+			[monitor signal];
+		}];
+
+	[push registerDeviceTokenData:deviceTokenData];
+	[monitor wait];
+
+	[self _assert:device
+	  	deviceToken:@"740f4707bebcf74f9b7c25d48e3358945f6aa01d" \
+	 		"a5ddb387462c7eaf61bb78ad"
+		error:error];
 }
 
 - (void)testSendPushNotification {
@@ -79,6 +108,31 @@
 
 	XCTAssertEqualObjects(deviceToken, device[@"token"]);
 	XCTAssertEqualObjects(@"ios", device[@"platform"]);
+}
+
+- (NSData *)_dataFromHexString:(NSString *)string {
+	string = [string lowercaseString];
+	NSMutableData *data = [NSMutableData data];
+
+	unsigned char whole_byte;
+	char byte_chars[3] = {'\0','\0','\0'};
+	int i = 0;
+
+	while (i < string.length - 1) {
+		char c = [string characterAtIndex:i++];
+
+		if ((c < '0') || (c > '9' && c < 'a') || (c > 'f')) {
+			continue;
+		}
+
+		byte_chars[0] = c;
+		byte_chars[1] = [string characterAtIndex:i++];
+		whole_byte = strtol(byte_chars, NULL, 16);
+
+		[data appendBytes:&whole_byte length:1];
+	}
+
+	return data;
 }
 
 @end

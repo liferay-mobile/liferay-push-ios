@@ -84,6 +84,19 @@ NSString *const IOS = @"ios";
 	}
 }
 
+- (void)registerDeviceTokenData:(NSData *)deviceTokenData {
+	NSString *deviceToken = [deviceTokenData description];
+
+	NSCharacterSet *set = [NSCharacterSet
+		characterSetWithCharactersInString:@"<>"];
+
+	deviceToken = [deviceToken stringByTrimmingCharactersInSet:set];
+	deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" "
+		withString:@""];
+
+	[self registerDeviceToken:deviceToken];
+}
+
 - (void)sendToUserId:(long long)userId
 		notification:(NSDictionary *)notification {
 
