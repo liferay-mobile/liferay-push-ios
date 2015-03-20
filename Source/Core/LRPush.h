@@ -14,7 +14,8 @@
 
 #import "LRSession.h"
 
-typedef void (^LRPushNotificationBlock)(NSDictionary *);
+typedef void (^LRPushNotificationFailureBlock)(NSError *);
+typedef void (^LRPushNotificationSuccessBlock)(NSDictionary *);
 
 /**
  * @author Bruno Farache
@@ -26,9 +27,11 @@ typedef void (^LRPushNotificationBlock)(NSDictionary *);
 + (instancetype)withSession:(LRSession *)session;
 
 - (void)didReceiveRemoteNotification:(NSDictionary *)pushNotification;
-- (instancetype)onFailure:(LRFailureBlock)failure;
-- (instancetype)onPushNotification:(LRPushNotificationBlock)pushNotification;
-- (instancetype)onSuccess:(LRSuccessBlock)success;
+- (instancetype)onFailure:(LRPushNotificationFailureBlock)failure;
+- (instancetype)onPushNotification:(
+	LRPushNotificationSuccessBlock)pushNotification;
+
+- (instancetype)onSuccess:(LRPushNotificationSuccessBlock)success;
 - (void)registerDevice;
 - (void)registerDeviceToken:(NSString *)deviceToken;
 - (void)registerDeviceTokenData:(NSData *)deviceTokenData;

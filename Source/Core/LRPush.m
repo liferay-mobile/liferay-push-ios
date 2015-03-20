@@ -25,9 +25,9 @@ NSString *const PAYLOAD = @"payload";
  */
 @interface LRPush ()
 
-@property (nonatomic, copy) LRFailureBlock failure;
-@property (nonatomic, copy) LRPushNotificationBlock pushNotification;
-@property (nonatomic, copy) LRSuccessBlock success;
+@property (nonatomic, copy) LRPushNotificationFailureBlock failure;
+@property (nonatomic, copy) LRPushNotificationSuccessBlock pushNotification;
+@property (nonatomic, copy) LRPushNotificationSuccessBlock success;
 
 @end
 
@@ -84,13 +84,15 @@ NSString *const PAYLOAD = @"payload";
 	return self;
 }
 
-- (instancetype)onPushNotification:(LRPushNotificationBlock)pushNotification {
+- (instancetype)onPushNotification:(
+		LRPushNotificationSuccessBlock)pushNotification {
+
 	self.pushNotification = pushNotification;
 
 	return self;
 }
 
-- (instancetype)onSuccess:(LRSuccessBlock)success {
+- (instancetype)onSuccess:(LRPushNotificationSuccessBlock)success {
 	self.success = success;
 
 	return self;
