@@ -29,6 +29,7 @@ typedef void (^LRPushNotificationBlock)(NSDictionary *);
 - (instancetype)onFailure:(LRFailureBlock)failure;
 - (instancetype)onPushNotification:(LRPushNotificationBlock)pushNotification;
 - (instancetype)onSuccess:(LRSuccessBlock)success;
+- (void)registerDevice;
 - (void)registerDeviceToken:(NSString *)deviceToken;
 - (void)registerDeviceTokenData:(NSData *)deviceTokenData;
 - (void)sendToUserId:(long long)userId
