@@ -17,7 +17,7 @@
 #import "LRError.h"
 #import "LRPushNotificationsDeviceService_v62.h"
 
-NSString *const IOS = @"ios";
+NSString *const APPLE = @"apple";
 NSString *const PAYLOAD = @"payload";
 
 /**
@@ -125,7 +125,7 @@ NSString *const PAYLOAD = @"payload";
 	NSError *error;
 
 	[[self _getService] addPushNotificationsDeviceWithToken:deviceToken
-		platform:IOS error:&error];
+		platform:APPLE error:&error];
 
 	if (error) {
 		[self _onFailure:error];
