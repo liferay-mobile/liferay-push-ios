@@ -99,9 +99,26 @@ NSString *const PAYLOAD = @"payload";
 }
 
 - (void)registerDevice {
-	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-		(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)
-	];
+	UIApplication *application = [UIApplication sharedApplication];
+
+	if ([application respondsToSelector:
+			@selector(registerForRemoteNotifications)]) {
+
+		UIUserNotificationType types = (UIUserNotificationTypeAlert |
+			UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+
+		UIUserNotificationSettings *settings = [UIUserNotificationSettings
+			settingsForTypes:types categories:nil];
+
+		[application registerUserNotificationSettings:settings];
+		[application registerForRemoteNotifications];
+	}
+	else {
+		[application registerForRemoteNotificationTypes:
+			(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge |
+				UIRemoteNotificationTypeSound)
+		];
+	}
 }
 
 - (void)registerDeviceToken:(NSString *)deviceToken {
