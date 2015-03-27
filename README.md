@@ -2,6 +2,8 @@
 
 # Liferay Push for iOS
 
+[![Build Status](https://travis-ci.org/brunofarache/liferay-push-ios.svg?branch=master)](https://travis-ci.org/brunofarache/liferay-push-ios)
+
 * [Setup](#setup)
 * [Use](#use)
 	* [Registering device](#registering-a-device)
