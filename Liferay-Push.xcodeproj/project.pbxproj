@@ -65,15 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				CCB9E5341AC4CE12008B2348 /* Core */,
-				6003F58C195388D20070C39A /* Frameworks */,
-				DFDEF1D66D46072CE708E777 /* Pods */,
-				6003F58B195388D20070C39A /* Products */,
 				CCB9E5371AC4CE12008B2348 /* Service */,
 				CCB9E53C1AC4CE12008B2348 /* Test */,
 				CC397A651AC5C22200208027 /* copyright.txt */,
 				CC397A661AC5C22200208027 /* Liferay-Push.podspec */,
 				CC397A671AC5C22200208027 /* Podfile */,
 				CC397A681AC5C22200208027 /* README.md */,
+				CC397A6D1AC5C2F600208027 /* Xcode */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +94,16 @@
 				63C8DEC280D65B4CD624AAB5 /* libPods-Liferay-Push.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC397A6D1AC5C2F600208027 /* Xcode */ = {
+			isa = PBXGroup;
+			children = (
+				6003F58C195388D20070C39A /* Frameworks */,
+				DFDEF1D66D46072CE708E777 /* Pods */,
+				6003F58B195388D20070C39A /* Products */,
+			);
+			name = Xcode;
 			sourceTree = "<group>";
 		};
 		CCB9E5341AC4CE12008B2348 /* Core */ = {
