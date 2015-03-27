@@ -8,5 +8,7 @@
 	<string>test@liferay.com</string>
 	<key>PUSH_PASSWORD</key>
 	<string>test</string>
+	<key>PUSH_TIMEOUT</key>
+	<string>1</string>
 </dict>
 </plist>

@@ -20,6 +20,7 @@ import XCTest
 class PushTest: XCTestCase {
 
 	var session: LRSession!
+	var timeout: NSTimeInterval!
 
 	override func setUp() {
 		super.setUp()
@@ -44,6 +45,8 @@ class PushTest: XCTestCase {
 
 		session = LRSession(
 			server: settings["PUSH_SERVER"], authentication: auth)
+
+		timeout = NSString(string: settings["PUSH_TIMEOUT"]!).doubleValue
 	}
 
 	func testPushNotification() {
@@ -54,8 +57,7 @@ class PushTest: XCTestCase {
 
 		let push = LRPush.withSession(session)
 			.onPushNotification({
-				let notification = $0 as [NSString: AnyObject]
-
+				let notification = $0 as [String: AnyObject]
 				XCTAssertEqual("message", notification["body"] as String)
 
 				let payload = notification["payload"] as [String: String]
@@ -66,6 +68,49 @@ class PushTest: XCTestCase {
 			})
 
 		push.didReceiveRemoteNotification(pushNotification)
+	}
+
+	func testRegisterDeviceToken() {
+		var expectation = expectationWithDescription("register")
+
+		let deviceToken = "token"
+
+		let push = LRPush.withSession(session)
+			.onSuccess({
+				let device = $0 as [String: AnyObject]
+				self.assertDevice(deviceToken, device: device)
+				expectation.fulfill()
+			})
+			.onFailure({
+				XCTFail("\($0.localizedDescription)")
+				expectation.fulfill()
+			})
+
+		push.registerDeviceToken(deviceToken)
+
+		waitForExpectationsWithTimeout(timeout) { (error) in
+			if (error != nil) {
+				XCTFail("timed out \(error.localizedDescription)")
+
+				return
+			}
+
+			expectation = self.expectationWithDescription("unregister")
+
+			push.unregisterDeviceToken(deviceToken)
+
+			self.waitForExpectationsWithTimeout(self.timeout) { (error) in
+				if (error != nil) {
+					XCTFail("timed out \(error.localizedDescription)")
+				}
+			}
+		}
+	}
+
+	private func assertDevice(deviceToken: String, device: [String: AnyObject]) {
+		XCTAssertNotNil(device)
+		XCTAssertEqual(deviceToken, device["token"]! as String)
+		XCTAssertEqual("apple", device["platform"]! as String)
 	}
 
 }
