@@ -17,8 +17,6 @@
 		CC397A711AC5C52300208027 /* PushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC397A701AC5C52300208027 /* PushTest.swift */; };
 		CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E5361AC4CE12008B2348 /* LRPush.m */; };
 		CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */; };
-		CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53D1AC4CE12008B2348 /* PushTest.m */; };
-		CCB9E54B1AC4CF4F008B2348 /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E5491AC4CF4F008B2348 /* BaseTest.m */; };
 		CCF220E01AC4D3A300BCD3DD /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCB9E5431AC4CEDE008B2348 /* settings.plist */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +39,8 @@
 		CCB9E5361AC4CE12008B2348 /* LRPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPush.m; sourceTree = "<group>"; };
 		CCB9E53A1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v62.h; sourceTree = "<group>"; };
 		CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPushNotificationsDeviceService_v62.m; sourceTree = "<group>"; };
-		CCB9E53D1AC4CE12008B2348 /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
 		CCB9E5431AC4CEDE008B2348 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		CCB9E5451AC4CEDE008B2348 /* Test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-Prefix.pch"; sourceTree = "<group>"; };
-		CCB9E5491AC4CF4F008B2348 /* BaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTest.m; sourceTree = "<group>"; };
-		CCB9E54A1AC4CF4F008B2348 /* BaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTest.h; sourceTree = "<group>"; };
 		CCF220E11AC4D5C100BCD3DD /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		F43467248379B49A6AC1B08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,9 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				CCB9E5411AC4CEDE008B2348 /* Supporting Files */,
-				CCB9E54A1AC4CF4F008B2348 /* BaseTest.h */,
-				CCB9E5491AC4CF4F008B2348 /* BaseTest.m */,
-				CCB9E53D1AC4CE12008B2348 /* PushTest.m */,
 				CC397A701AC5C52300208027 /* PushTest.swift */,
 				CC397A6F1AC5C52300208027 /* Liferay-Push-Bridging-Header.h */,
 			);
@@ -282,11 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCB9E54B1AC4CF4F008B2348 /* BaseTest.m in Sources */,
 				CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */,
 				CC397A6C1AC5C22200208027 /* README.md in Sources */,
 				CC397A711AC5C52300208027 /* PushTest.swift in Sources */,
-				CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */,
 				CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

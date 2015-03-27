@@ -72,7 +72,6 @@ class PushTest: XCTestCase {
 
 	func testRegisterDeviceToken() {
 		var expectation = expectationWithDescription("register")
-
 		let deviceToken = "token"
 
 		let push = LRPush.withSession(session)
@@ -107,6 +106,38 @@ class PushTest: XCTestCase {
 		}
 	}
 
+	func testRegisterDeviceTokenData() {
+		var expectation = expectationWithDescription("register")
+
+		let deviceToken = "<740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d " +
+			"a5ddb387 462c7eaf 61bb78ad>"
+
+		let deviceTokenData = self.toData(deviceToken)
+
+		let push = LRPush.withSession(session)
+			.onSuccess({
+				let device = $0 as [String: AnyObject]
+				self.assertDevice(
+					"740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf" +
+						"61bb78ad",
+					device: device)
+
+				expectation.fulfill()
+			})
+			.onFailure({
+				XCTFail("\($0.localizedDescription)")
+				expectation.fulfill()
+			})
+
+		push.registerDeviceTokenData(deviceTokenData)
+
+		waitForExpectationsWithTimeout(timeout) { (error) in
+			if (error != nil) {
+				XCTFail("timed out \(error.localizedDescription)")
+			}
+		}
+	}
+
 	func testSendPushNotification() {
 		var expectation = expectationWithDescription("send push notification")
 
@@ -131,6 +162,28 @@ class PushTest: XCTestCase {
 		XCTAssertNotNil(device)
 		XCTAssertEqual(deviceToken, device["token"]! as String)
 		XCTAssertEqual("apple", device["platform"]! as String)
+	}
+
+	private func toData(deviceToken: String) -> NSData? {
+		let trim = deviceToken
+			.stringByTrimmingCharactersInSet(
+				NSCharacterSet(charactersInString: "<> "))
+			.stringByReplacingOccurrencesOfString(" ", withString: "")
+
+		let data = NSMutableData(capacity: countElements(trim) / 2)
+
+		var i = trim.startIndex;
+
+		for (; i < trim.endIndex; i = i.successor().successor()) {
+			let byteString = trim.substringWithRange(
+				Range<String.Index>(start: i, end: i.successor().successor()))
+
+			let num = Byte(byteString.withCString { strtoul($0, nil, 16) })
+
+			data!.appendBytes([num] as [Byte], length: 1)
+		}
+
+		return data
 	}
 
 }
