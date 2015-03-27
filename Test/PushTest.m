@@ -127,7 +127,7 @@
 	XCTAssertNotNil(device);
 
 	XCTAssertEqualObjects(deviceToken, device[@"token"]);
-	XCTAssertEqualObjects(@"ios", device[@"platform"]);
+	XCTAssertEqualObjects(@"apple", device[@"platform"]);
 }
 
 - (NSData *)_dataFromHexString:(NSString *)string {

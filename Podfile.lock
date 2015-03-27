@@ -1,0 +1,42 @@
+PODS:
+  - AFNetworking (2.3.1):
+    - AFNetworking/NSURLConnection (= 2.3.1)
+    - AFNetworking/NSURLSession (= 2.3.1)
+    - AFNetworking/Reachability (= 2.3.1)
+    - AFNetworking/Security (= 2.3.1)
+    - AFNetworking/Serialization (= 2.3.1)
+    - AFNetworking/UIKit (= 2.3.1)
+  - AFNetworking/NSURLConnection (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.3.1)
+  - AFNetworking/Security (2.3.1)
+  - AFNetworking/Serialization (2.3.1)
+  - AFNetworking/UIKit (2.3.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Liferay-iOS-SDK (6.2.0.13):
+    - AFNetworking (~> 2.3.0)
+    - Liferay-iOS-SDK/Liferay-Push (= 6.2.0.13)
+    - Liferay-iOS-SDK/Liferay-Sync-iOS-SDK (= 6.2.0.13)
+  - Liferay-iOS-SDK/Liferay-Push (6.2.0.13):
+    - AFNetworking (~> 2.3.0)
+  - Liferay-iOS-SDK/Liferay-Sync-iOS-SDK (6.2.0.13):
+    - AFNetworking (~> 2.3.0)
+  - TRVSMonitor (0.0.3)
+
+DEPENDENCIES:
+  - Liferay-iOS-SDK (= 6.2.0.13)
+  - TRVSMonitor
+
+SPEC CHECKSUMS:
+  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  Liferay-iOS-SDK: 4d3e022107e006d7dd0e2efe6f38a6cc9c3f33e2
+  TRVSMonitor: 61f54e833d4ad9efbc6e6fc8a060c42bcb01d0c3
+
+COCOAPODS: 0.35.0

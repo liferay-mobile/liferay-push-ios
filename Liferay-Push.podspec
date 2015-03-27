@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 	s.homepage				= "https://github.com/brunofarache/liferay-push-ios"
 	s.license				= {
 								:type => "LPGL 2.1",
-								:file => "ios/copyright.txt"
+								:file => "copyright.txt"
 							}
 	s.authors				= {
 								"Bruno Farache" => "bruno.farache@liferay.com"
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 	s.ios.deployment_target	= '7.0'
 	s.source				= {
 								:git => "https://github.com/brunofarache/liferay-push-ios.git",
-								:tag => "ios-1.0.1"
+								:tag => "1.0.1"
 							}
 	s.source_files			= "ios/Source/{Core,Service}/**/*.{h,m}"
 	s.dependency			"Liferay-iOS-SDK", "6.2.0.13"
