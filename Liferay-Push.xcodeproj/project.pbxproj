@@ -10,6 +10,10 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		67726BF3CB6B782382B6B55C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F43467248379B49A6AC1B08D /* libPods.a */; };
+		CC397A691AC5C22200208027 /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC397A651AC5C22200208027 /* copyright.txt */; };
+		CC397A6A1AC5C22200208027 /* Liferay-Push.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CC397A661AC5C22200208027 /* Liferay-Push.podspec */; };
+		CC397A6B1AC5C22200208027 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CC397A671AC5C22200208027 /* Podfile */; };
+		CC397A6C1AC5C22200208027 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CC397A681AC5C22200208027 /* README.md */; };
 		CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E5361AC4CE12008B2348 /* LRPush.m */; };
 		CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */; };
 		CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53D1AC4CE12008B2348 /* PushTest.m */; };
@@ -26,6 +30,10 @@
 		6003F5AE195388D20070C39A /* Liferay-Push.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Liferay-Push.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C8DEC280D65B4CD624AAB5 /* libPods-Liferay-Push.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liferay-Push.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81CB4F2910187118DD98117 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CC397A651AC5C22200208027 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
+		CC397A661AC5C22200208027 /* Liferay-Push.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Liferay-Push.podspec"; sourceTree = "<group>"; };
+		CC397A671AC5C22200208027 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CC397A681AC5C22200208027 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CCB9E5351AC4CE12008B2348 /* LRPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPush.h; sourceTree = "<group>"; };
 		CCB9E5361AC4CE12008B2348 /* LRPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPush.m; sourceTree = "<group>"; };
 		CCB9E53A1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v62.h; sourceTree = "<group>"; };
@@ -57,11 +65,15 @@
 			isa = PBXGroup;
 			children = (
 				CCB9E5341AC4CE12008B2348 /* Core */,
+				6003F58C195388D20070C39A /* Frameworks */,
+				DFDEF1D66D46072CE708E777 /* Pods */,
+				6003F58B195388D20070C39A /* Products */,
 				CCB9E5371AC4CE12008B2348 /* Service */,
 				CCB9E53C1AC4CE12008B2348 /* Test */,
-				6003F58C195388D20070C39A /* Frameworks */,
-				6003F58B195388D20070C39A /* Products */,
-				DFDEF1D66D46072CE708E777 /* Pods */,
+				CC397A651AC5C22200208027 /* copyright.txt */,
+				CC397A661AC5C22200208027 /* Liferay-Push.podspec */,
+				CC397A671AC5C22200208027 /* Podfile */,
+				CC397A681AC5C22200208027 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,7 +222,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC397A691AC5C22200208027 /* copyright.txt in Resources */,
 				CCF220E01AC4D3A300BCD3DD /* settings.plist in Resources */,
+				CC397A6B1AC5C22200208027 /* Podfile in Resources */,
+				CC397A6A1AC5C22200208027 /* Liferay-Push.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +271,7 @@
 			files = (
 				CCB9E54B1AC4CF4F008B2348 /* BaseTest.m in Sources */,
 				CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */,
+				CC397A6C1AC5C22200208027 /* README.md in Sources */,
 				CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */,
 				CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */,
 			);
