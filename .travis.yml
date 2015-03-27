@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: Liferay-Push.xcworkspace
+xcode_scheme: Liferay-Push
