@@ -15,7 +15,6 @@
 		CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53D1AC4CE12008B2348 /* PushTest.m */; };
 		CCB9E54B1AC4CF4F008B2348 /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E5491AC4CF4F008B2348 /* BaseTest.m */; };
 		CCF220E01AC4D3A300BCD3DD /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCB9E5431AC4CEDE008B2348 /* settings.plist */; };
-		CCF220E21AC4D5C100BCD3DD /* Test-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCF220E11AC4D5C100BCD3DD /* Test-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,7 +179,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LR;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Bruno Farache";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -211,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCF220E21AC4D5C100BCD3DD /* Test-Info.plist in Resources */,
 				CCF220E01AC4D3A300BCD3DD /* settings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
