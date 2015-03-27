@@ -64,7 +64,7 @@ class PushTest: XCTestCase {
 				XCTAssertEqual("world", payload["hello"]!)
 			})
 			.onFailure({
-				XCTFail("\($0.localizedDescription)")
+				self.failed($0)
 			})
 
 		push.didReceiveRemoteNotification(pushNotification)
@@ -81,7 +81,7 @@ class PushTest: XCTestCase {
 				expectation.fulfill()
 			})
 			.onFailure({
-				XCTFail("\($0.localizedDescription)")
+				self.failed($0)
 				expectation.fulfill()
 			})
 
@@ -89,7 +89,7 @@ class PushTest: XCTestCase {
 
 		waitForExpectationsWithTimeout(timeout) { (error) in
 			if (error != nil) {
-				XCTFail("timed out \(error.localizedDescription)")
+				self.failed(error)
 
 				return
 			}
@@ -98,11 +98,8 @@ class PushTest: XCTestCase {
 
 			push.unregisterDeviceToken(deviceToken)
 
-			self.waitForExpectationsWithTimeout(self.timeout) { (error) in
-				if (error != nil) {
-					XCTFail("timed out \(error.localizedDescription)")
-				}
-			}
+			self.waitForExpectationsWithTimeout(
+				self.timeout, handler: self.failed)
 		}
 	}
 
@@ -125,17 +122,13 @@ class PushTest: XCTestCase {
 				expectation.fulfill()
 			})
 			.onFailure({
-				XCTFail("\($0.localizedDescription)")
+				self.failed($0)
 				expectation.fulfill()
 			})
 
 		push.registerDeviceTokenData(deviceTokenData)
 
-		waitForExpectationsWithTimeout(timeout) { (error) in
-			if (error != nil) {
-				XCTFail("timed out \(error.localizedDescription)")
-			}
-		}
+		waitForExpectationsWithTimeout(timeout, handler:failed)
 	}
 
 	func testSendPushNotification() {
@@ -143,7 +136,7 @@ class PushTest: XCTestCase {
 
 		let push = LRPush.withSession(self.session)
 			.onFailure({
-				XCTFail("\($0.localizedDescription)")
+				self.failed($0)
 				expectation.fulfill()
 			})
 
@@ -151,17 +144,19 @@ class PushTest: XCTestCase {
 
 		expectation.fulfill()
 
-		waitForExpectationsWithTimeout(timeout) { (error) in
-			if (error != nil) {
-				XCTFail("timed out \(error.localizedDescription)")
-			}
-		}
+		waitForExpectationsWithTimeout(timeout, handler: failed)
 	}
 
 	private func assertDevice(deviceToken: String, device: [String: AnyObject]) {
 		XCTAssertNotNil(device)
 		XCTAssertEqual(deviceToken, device["token"]! as String)
 		XCTAssertEqual("apple", device["platform"]! as String)
+	}
+
+	private func failed(error: NSError?) {
+		if (error != nil) {
+			XCTFail(error!.localizedDescription)
+		}
 	}
 
 	private func toData(deviceToken: String) -> NSData? {
