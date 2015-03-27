@@ -14,6 +14,7 @@
 		CC397A6A1AC5C22200208027 /* Liferay-Push.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CC397A661AC5C22200208027 /* Liferay-Push.podspec */; };
 		CC397A6B1AC5C22200208027 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CC397A671AC5C22200208027 /* Podfile */; };
 		CC397A6C1AC5C22200208027 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CC397A681AC5C22200208027 /* README.md */; };
+		CC397A711AC5C52300208027 /* PushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC397A701AC5C52300208027 /* PushTest.swift */; };
 		CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E5361AC4CE12008B2348 /* LRPush.m */; };
 		CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */; };
 		CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53D1AC4CE12008B2348 /* PushTest.m */; };
@@ -34,6 +35,8 @@
 		CC397A661AC5C22200208027 /* Liferay-Push.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Liferay-Push.podspec"; sourceTree = "<group>"; };
 		CC397A671AC5C22200208027 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		CC397A681AC5C22200208027 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CC397A6F1AC5C52300208027 /* Liferay-Push-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Liferay-Push-Bridging-Header.h"; sourceTree = "<group>"; };
+		CC397A701AC5C52300208027 /* PushTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTest.swift; sourceTree = "<group>"; };
 		CCB9E5351AC4CE12008B2348 /* LRPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPush.h; sourceTree = "<group>"; };
 		CCB9E5361AC4CE12008B2348 /* LRPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPush.m; sourceTree = "<group>"; };
 		CCB9E53A1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v62.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				CCB9E54A1AC4CF4F008B2348 /* BaseTest.h */,
 				CCB9E5491AC4CF4F008B2348 /* BaseTest.m */,
 				CCB9E53D1AC4CE12008B2348 /* PushTest.m */,
+				CC397A701AC5C52300208027 /* PushTest.swift */,
+				CC397A6F1AC5C52300208027 /* Liferay-Push-Bridging-Header.h */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				CCB9E54B1AC4CF4F008B2348 /* BaseTest.m in Sources */,
 				CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */,
 				CC397A6C1AC5C22200208027 /* README.md in Sources */,
+				CC397A711AC5C52300208027 /* PushTest.swift in Sources */,
 				CCB9E5401AC4CE12008B2348 /* PushTest.m in Sources */,
 				CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */,
 			);
@@ -364,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1484AFBB66632F6ADEF636DA /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -376,7 +383,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Test/Supporting Files/Test-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Test/Liferay-Push-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -386,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A81CB4F2910187118DD98117 /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -394,7 +405,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test/Supporting Files/Test-Prefix.pch";
 				INFOPLIST_FILE = "Test/Supporting Files/Test-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Test/Liferay-Push-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
