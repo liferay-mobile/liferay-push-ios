@@ -107,6 +107,26 @@ class PushTest: XCTestCase {
 		}
 	}
 
+	func testSendPushNotification() {
+		var expectation = expectationWithDescription("send push notification")
+
+		let push = LRPush.withSession(self.session)
+			.onFailure({
+				XCTFail("\($0.localizedDescription)")
+				expectation.fulfill()
+			})
+
+		push.sendToUserId(0, notification: ["message": "hello!"])
+
+		expectation.fulfill()
+
+		waitForExpectationsWithTimeout(timeout) { (error) in
+			if (error != nil) {
+				XCTFail("timed out \(error.localizedDescription)")
+			}
+		}
+	}
+
 	private func assertDevice(deviceToken: String, device: [String: AnyObject]) {
 		XCTAssertNotNil(device)
 		XCTAssertEqual(deviceToken, device["token"]! as String)
