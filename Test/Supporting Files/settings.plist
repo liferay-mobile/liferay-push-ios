@@ -2,15 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>url</key>
+	<key>PUSH_SERVER</key>
 	<string>http://localhost:8080</string>
-	<key>username</key>
+	<key>PUSH_USERNAME</key>
 	<string>test@liferay.com</string>
-	<key>password</key>
+	<key>PUSH_PASSWORD</key>
 	<string>test</string>
-	<key>groupId</key>
-	<integer>10184</integer>
-	<key>portalVersion</key>
-	<integer>6201</integer>
 </dict>
 </plist>

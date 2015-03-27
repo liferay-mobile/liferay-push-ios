@@ -22,20 +22,34 @@
 @implementation BaseTest
 
 - (void)setUp {
+	NSMutableDictionary *settings = [NSMutableDictionary dictionary];
+
 	NSBundle *bundle = [NSBundle
 		bundleWithIdentifier:@"com.liferay.mobile.sdk.Liferay-Push"];
 
 	NSString *path = [bundle pathForResource:@"settings" ofType:@"plist"];
 
-	self.settings = [[NSDictionary alloc] initWithContentsOfFile:path];
+	if (path) {
+		NSDictionary *settingsFile = [[NSDictionary alloc]
+			initWithContentsOfFile:path];
 
-	NSString *url = self.settings[@"url"];
+		settings = [NSMutableDictionary dictionaryWithDictionary:settingsFile];
+	}
+
+	NSDictionary *environmentVariables = [[NSProcessInfo processInfo]
+		environment];
+
+	[settings addEntriesFromDictionary:environmentVariables];
+
+	self.settings = [NSDictionary dictionaryWithDictionary:settings];
+
+	NSString *server = self.settings[@"PUSH_SERVER"];
 
 	id<LRAuthentication> authentication = [[LRBasicAuthentication alloc]
-		initWithUsername:self.settings[@"username"]
-		password:self.settings[@"password"]];
+		initWithUsername:self.settings[@"PUSH_USERNAME"]
+		password:self.settings[@"PUSH_PASSWORD"]];
 
-	self.session = [[LRSession alloc] initWithServer:url
+	self.session = [[LRSession alloc] initWithServer:server
 		authentication:authentication];
 }
 
