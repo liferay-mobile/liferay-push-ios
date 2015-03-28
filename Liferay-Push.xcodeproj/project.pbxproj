@@ -15,7 +15,7 @@
 		CC397A6B1AC5C22200208027 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CC397A671AC5C22200208027 /* Podfile */; };
 		CC397A6C1AC5C22200208027 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CC397A681AC5C22200208027 /* README.md */; };
 		CC397A711AC5C52300208027 /* PushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC397A701AC5C52300208027 /* PushTest.swift */; };
-		CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E5361AC4CE12008B2348 /* LRPush.m */; };
+		CC73C7B01AC60711009052D1 /* LRPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC73C7AF1AC60711009052D1 /* LRPush.swift */; };
 		CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */; };
 		CCF220E01AC4D3A300BCD3DD /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCB9E5431AC4CEDE008B2348 /* settings.plist */; };
 /* End PBXBuildFile section */
@@ -35,8 +35,7 @@
 		CC397A681AC5C22200208027 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CC397A6F1AC5C52300208027 /* Liferay-Push-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Liferay-Push-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC397A701AC5C52300208027 /* PushTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTest.swift; sourceTree = "<group>"; };
-		CCB9E5351AC4CE12008B2348 /* LRPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPush.h; sourceTree = "<group>"; };
-		CCB9E5361AC4CE12008B2348 /* LRPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPush.m; sourceTree = "<group>"; };
+		CC73C7AF1AC60711009052D1 /* LRPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRPush.swift; sourceTree = "<group>"; };
 		CCB9E53A1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v62.h; sourceTree = "<group>"; };
 		CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPushNotificationsDeviceService_v62.m; sourceTree = "<group>"; };
 		CCB9E5431AC4CEDE008B2348 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
@@ -107,8 +106,7 @@
 		CCB9E5341AC4CE12008B2348 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CCB9E5351AC4CE12008B2348 /* LRPush.h */,
-				CCB9E5361AC4CE12008B2348 /* LRPush.m */,
+				CC73C7AF1AC60711009052D1 /* LRPush.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -274,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCB9E53E1AC4CE12008B2348 /* LRPush.m in Sources */,
+				CC73C7B01AC60711009052D1 /* LRPush.swift in Sources */,
 				CC397A6C1AC5C22200208027 /* README.md in Sources */,
 				CC397A711AC5C52300208027 /* PushTest.swift in Sources */,
 				CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */,

@@ -76,7 +76,7 @@ class PushTest: XCTestCase {
 
 		let push = LRPush.withSession(session)
 			.onSuccess({
-				let device = $0 as [String: AnyObject]
+				let device = $0 as [String: AnyObject]!
 				self.assertDevice(deviceToken, device: device)
 				expectation.fulfill()
 			})
@@ -109,11 +109,11 @@ class PushTest: XCTestCase {
 		let deviceToken = "<740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d " +
 			"a5ddb387 462c7eaf 61bb78ad>"
 
-		let deviceTokenData = self.toData(deviceToken)
+		let deviceTokenData = toData(deviceToken)
 
 		let push = LRPush.withSession(session)
 			.onSuccess({
-				let device = $0 as [String: AnyObject]
+				let device = $0 as [String: AnyObject]!
 				self.assertDevice(
 					"740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf" +
 						"61bb78ad",
@@ -126,7 +126,7 @@ class PushTest: XCTestCase {
 				expectation.fulfill()
 			})
 
-		push.registerDeviceTokenData(deviceTokenData)
+		push.registerDeviceTokenData(deviceTokenData!)
 
 		waitForExpectationsWithTimeout(timeout, handler:failed)
 	}
