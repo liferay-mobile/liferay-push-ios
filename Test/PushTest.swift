@@ -135,14 +135,15 @@ class PushTest: XCTestCase {
 		var expectation = expectationWithDescription("send push notification")
 
 		let push = LRPush.withSession(self.session)
+			.onSuccess({ result in
+				expectation.fulfill()
+			})
 			.onFailure({
 				self.failed($0)
 				expectation.fulfill()
 			})
 
 		push.sendToUserId(0, notification: ["message": "hello!"])
-
-		expectation.fulfill()
 
 		waitForExpectationsWithTimeout(timeout, handler: failed)
 	}
