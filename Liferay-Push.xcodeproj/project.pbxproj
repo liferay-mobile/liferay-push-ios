@@ -106,8 +106,8 @@
 		CCB9E5341AC4CE12008B2348 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CCD0669C1AC99DD200FD2E13 /* Liferay-Push-Bridging-Header.h */,
 				CC73C7AF1AC60711009052D1 /* LRPush.swift */,
+				CCD0669C1AC99DD200FD2E13 /* Liferay-Push-Bridging-Header.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
