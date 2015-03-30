@@ -20,23 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Liferay-iOS-SDK (6.2.0.13):
-    - AFNetworking (~> 2.3.0)
-    - Liferay-iOS-SDK/Liferay-Push (= 6.2.0.13)
-    - Liferay-iOS-SDK/Liferay-Sync-iOS-SDK (= 6.2.0.13)
-  - Liferay-iOS-SDK/Liferay-Push (6.2.0.13):
-    - AFNetworking (~> 2.3.0)
-  - Liferay-iOS-SDK/Liferay-Sync-iOS-SDK (6.2.0.13):
+  - Liferay-iOS-SDK (6.2.0.14):
     - AFNetworking (~> 2.3.0)
   - TRVSMonitor (0.0.3)
 
 DEPENDENCIES:
-  - Liferay-iOS-SDK (= 6.2.0.13)
+  - Liferay-iOS-SDK (= 6.2.0.14)
   - TRVSMonitor
 
 SPEC CHECKSUMS:
   AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
-  Liferay-iOS-SDK: 4d3e022107e006d7dd0e2efe6f38a6cc9c3f33e2
+  Liferay-iOS-SDK: cbbf2b83eb137f552ae8e40913e3b9940bf36a30
   TRVSMonitor: b4a8d76b31389ceb389e3e6a28fb20936cf00fe8
 
 COCOAPODS: 0.36.1

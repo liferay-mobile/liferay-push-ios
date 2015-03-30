@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
 	s.ios.deployment_target	= '8.0'
 	s.source				= {
 								:git => "https://github.com/brunofarache/liferay-push-ios.git",
-								:tag => "1.0.1"
+								:tag => "1.0.2"
 							}
 	s.source_files			= "{Core,Service}/**/*"
-	s.dependency			"Liferay-iOS-SDK", "6.2.0.13"
+	s.dependency			"Liferay-iOS-SDK", "6.2.0.14"
 end
