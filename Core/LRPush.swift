@@ -105,7 +105,7 @@ public class LRPush {
 		let bytes = UnsafePointer<CUnsignedChar>(deviceTokenData.bytes)
 
 		for (var i = 0; i < deviceTokenData.length; i++) {
-			deviceToken +=  String(format: "%02X", bytes[i])
+			deviceToken += String(format: "%02X", bytes[i])
 		}
 
 		self.registerDeviceToken(deviceToken)

@@ -35,8 +35,8 @@ DEPENDENCIES:
   - TRVSMonitor
 
 SPEC CHECKSUMS:
-  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
   Liferay-iOS-SDK: 4d3e022107e006d7dd0e2efe6f38a6cc9c3f33e2
-  TRVSMonitor: 61f54e833d4ad9efbc6e6fc8a060c42bcb01d0c3
+  TRVSMonitor: b4a8d76b31389ceb389e3e6a28fb20936cf00fe8
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.1
