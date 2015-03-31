@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		67726BF3CB6B782382B6B55C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F43467248379B49A6AC1B08D /* libPods.a */; };
 		CC397A691AC5C22200208027 /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC397A651AC5C22200208027 /* copyright.txt */; };
 		CC397A6A1AC5C22200208027 /* Liferay-Push.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CC397A661AC5C22200208027 /* Liferay-Push.podspec */; };
 		CC397A6B1AC5C22200208027 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CC397A671AC5C22200208027 /* Podfile */; };
@@ -17,6 +16,7 @@
 		CC397A711AC5C52300208027 /* PushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC397A701AC5C52300208027 /* PushTest.swift */; };
 		CC73C7B01AC60711009052D1 /* LRPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC73C7AF1AC60711009052D1 /* LRPush.swift */; };
 		CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */; };
+		CCEBE3131ACAB59B00ADCFF6 /* LRMobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEBE3121ACAB59B00ADCFF6 /* LRMobileSDK.framework */; };
 		CCF220E01AC4D3A300BCD3DD /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCB9E5431AC4CEDE008B2348 /* settings.plist */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,9 @@
 		CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPushNotificationsDeviceService_v62.m; sourceTree = "<group>"; };
 		CCB9E5431AC4CEDE008B2348 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		CCB9E5451AC4CEDE008B2348 /* Test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-Prefix.pch"; sourceTree = "<group>"; };
+		CCEBE3121ACAB59B00ADCFF6 /* LRMobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LRMobileSDK.framework; path = "Pods/../build/Debug-iphoneos/Pods/LRMobileSDK.framework"; sourceTree = "<group>"; };
 		CCF220E11AC4D5C100BCD3DD /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
+		E10E23B4E6477C79A22DA17A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43467248379B49A6AC1B08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -49,15 +51,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCEBE3131ACAB59B00ADCFF6 /* LRMobileSDK.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				67726BF3CB6B782382B6B55C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5067E4DA28FCA94DCCB43845 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +78,8 @@
 				CC397A671AC5C22200208027 /* Podfile */,
 				CC397A681AC5C22200208027 /* README.md */,
 				CC397A6D1AC5C2F600208027 /* Xcode */,
+				5067E4DA28FCA94DCCB43845 /* Pods */,
+				BA91E4A3C39BF17F3C1FADDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +100,15 @@
 				6003F591195388D20070C39A /* UIKit.framework */,
 				F43467248379B49A6AC1B08D /* libPods.a */,
 				63C8DEC280D65B4CD624AAB5 /* libPods-Liferay-Push.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA91E4A3C39BF17F3C1FADDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCEBE3121ACAB59B00ADCFF6 /* LRMobileSDK.framework */,
+				E10E23B4E6477C79A22DA17A /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +197,7 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				4AC3FFE94DAF8B85240659F6 /* Copy Pods Resources */,
+				FF72302C9ACAE5751A153EFD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +286,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FF72302C9ACAE5751A153EFD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -314,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -363,6 +399,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test/Supporting Files/Test-Prefix.pch";
@@ -371,6 +408,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Test/Supporting Files/Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/Liferay-Push-Bridging-Header.h";
@@ -389,10 +427,12 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test/Supporting Files/Test-Prefix.pch";
 				INFOPLIST_FILE = "Test/Supporting Files/Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/Liferay-Push-Bridging-Header.h";
