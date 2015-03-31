@@ -29,6 +29,7 @@
 		6003F5AE195388D20070C39A /* Liferay-Push.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Liferay-Push.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C8DEC280D65B4CD624AAB5 /* libPods-Liferay-Push.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liferay-Push.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81CB4F2910187118DD98117 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CC0C80E01ACA212900776B5F /* Liferay-Push-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Liferay-Push-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC397A651AC5C22200208027 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		CC397A661AC5C22200208027 /* Liferay-Push.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Liferay-Push.podspec"; sourceTree = "<group>"; };
 		CC397A671AC5C22200208027 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -39,7 +40,6 @@
 		CCB9E53B1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPushNotificationsDeviceService_v62.m; sourceTree = "<group>"; };
 		CCB9E5431AC4CEDE008B2348 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		CCB9E5451AC4CEDE008B2348 /* Test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-Prefix.pch"; sourceTree = "<group>"; };
-		CCD0669C1AC99DD200FD2E13 /* Liferay-Push-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Liferay-Push-Bridging-Header.h"; sourceTree = "<group>"; };
 		CCF220E11AC4D5C100BCD3DD /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		F43467248379B49A6AC1B08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				CC73C7AF1AC60711009052D1 /* LRPush.swift */,
-				CCD0669C1AC99DD200FD2E13 /* Liferay-Push-Bridging-Header.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -149,6 +148,7 @@
 		CCB9E5411AC4CEDE008B2348 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC0C80E01ACA212900776B5F /* Liferay-Push-Bridging-Header.h */,
 				CCB9E5431AC4CEDE008B2348 /* settings.plist */,
 				CCF220E11AC4D5C100BCD3DD /* Test-Info.plist */,
 				CCB9E5451AC4CEDE008B2348 /* Test-Prefix.pch */,
@@ -373,7 +373,7 @@
 				INFOPLIST_FILE = "Test/Supporting Files/Test-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Core/Liferay-Push-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/Liferay-Push-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -395,7 +395,7 @@
 				INFOPLIST_FILE = "Test/Supporting Files/Test-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Core/Liferay-Push-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/Liferay-Push-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

@@ -44,7 +44,7 @@ public class LRPush {
 			})
 	}
 
-	func didReceiveRemoteNotification(pushNotification: [String: AnyObject]) {
+	public func didReceiveRemoteNotification(pushNotification: [String: AnyObject]) {
 		var error: NSError?
 
 		let payload = parse(
@@ -63,13 +63,13 @@ public class LRPush {
 		self.pushNotification?(temp)
 	}
 
-	func onFailure(failure: (NSError -> ())) -> Self {
+	public func onFailure(failure: (NSError -> ())) -> Self {
 		self.failure = failure
 
 		return self
 	}
 
-	func onPushNotification(
+	public func onPushNotification(
 			pushNotification: ([String: AnyObject] -> ())) -> Self {
 
 		self.pushNotification = pushNotification
@@ -77,13 +77,13 @@ public class LRPush {
 		return self
 	}
 
-	func onSuccess(success: ([String: AnyObject]? -> ())) -> Self {
+	public func onSuccess(success: ([String: AnyObject]? -> ())) -> Self {
 		self.success = success
 
 		return self
 	}
 
-	func registerDevice() {
+	public func registerDevice() {
 		let application = UIApplication.sharedApplication()
 
 		if (application.respondsToSelector("registerForRemoteNotifications")) {
@@ -100,7 +100,7 @@ public class LRPush {
 		}
 	}
 
-	func registerDeviceTokenData(deviceTokenData: NSData) {
+	public func registerDeviceTokenData(deviceTokenData: NSData) {
 		var deviceToken = ""
 		let bytes = UnsafePointer<CUnsignedChar>(deviceTokenData.bytes)
 
@@ -111,7 +111,7 @@ public class LRPush {
 		self.registerDeviceToken(deviceToken)
 	}
 
-	func registerDeviceToken(deviceToken: String) {
+	public func registerDeviceToken(deviceToken: String) {
 		var error: NSError?
 
 		self.getService().addPushNotificationsDeviceWithToken(
@@ -122,11 +122,11 @@ public class LRPush {
 		}
 	}
 
-	func sendToUserId(userId: Int, notification: [String: AnyObject]) {
+	public func sendToUserId(userId: Int, notification: [String: AnyObject]) {
 		sendToUserId([userId], notification: notification)
 	}
 
-	func sendToUserId(userIds: [Int], notification: [String: AnyObject]) {
+	public func sendToUserId(userIds: [Int], notification: [String: AnyObject]) {
 		var error: NSError?
 		let data = NSJSONSerialization.dataWithJSONObject(
 			notification, options: NSJSONWritingOptions.allZeros, error: &error)
@@ -147,7 +147,7 @@ public class LRPush {
 		}
 	}
 
-	func unregisterDeviceToken(deviceToken: String) {
+	public func unregisterDeviceToken(deviceToken: String) {
 		var error: NSError?
 
 		self.getService().deletePushNotificationsDeviceWithToken(

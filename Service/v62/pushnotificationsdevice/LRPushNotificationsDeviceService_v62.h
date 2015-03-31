@@ -12,7 +12,7 @@
  * details.
  */
 
-#import "LRBaseService.h"
+@import LRMobileSDK;
 
 /**
  * @author Bruno Farache
