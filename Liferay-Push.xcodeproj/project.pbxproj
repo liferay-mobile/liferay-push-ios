@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C51C0CA5F450E90B284AC58 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10E23B4E6477C79A22DA17A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		CC397A691AC5C22200208027 /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC397A651AC5C22200208027 /* copyright.txt */; };
@@ -54,19 +55,13 @@
 				CCEBE3131ACAB59B00ADCFF6 /* LRMobileSDK.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
+				4C51C0CA5F450E90B284AC58 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5067E4DA28FCA94DCCB43845 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +73,6 @@
 				CC397A671AC5C22200208027 /* Podfile */,
 				CC397A681AC5C22200208027 /* README.md */,
 				CC397A6D1AC5C2F600208027 /* Xcode */,
-				5067E4DA28FCA94DCCB43845 /* Pods */,
 				BA91E4A3C39BF17F3C1FADDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
