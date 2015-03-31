@@ -44,7 +44,9 @@ public class LRPush {
 			})
 	}
 
-	public func didReceiveRemoteNotification(pushNotification: [String: AnyObject]) {
+	public func didReceiveRemoteNotification(
+		pushNotification: [String: AnyObject]) {
+
 		var error: NSError?
 
 		let payload = parse(
@@ -70,7 +72,7 @@ public class LRPush {
 	}
 
 	public func onPushNotification(
-			pushNotification: ([String: AnyObject] -> ())) -> Self {
+		pushNotification: ([String: AnyObject] -> ()))-> Self {
 
 		self.pushNotification = pushNotification
 
@@ -126,7 +128,9 @@ public class LRPush {
 		sendToUserId([userId], notification: notification)
 	}
 
-	public func sendToUserId(userIds: [Int], notification: [String: AnyObject]) {
+	public func sendToUserId(
+		userIds: [Int], notification: [String: AnyObject]) {
+
 		var error: NSError?
 		let data = NSJSONSerialization.dataWithJSONObject(
 			notification, options: NSJSONWritingOptions.allZeros, error: &error)
@@ -163,7 +167,7 @@ public class LRPush {
 	}
 
 	private func parse(payload: String, error: NSErrorPointer)
-			-> [String: AnyObject]? {
+		-> [String: AnyObject]? {
 
 		let data = payload.dataUsingEncoding(NSUTF8StringEncoding)!
 		var parseError: NSError?
