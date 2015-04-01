@@ -1,7 +1,8 @@
+osx_image: beta-xcode6.2
 language: objective-c
 xcode_workspace: Liferay-Push.xcworkspace
 xcode_scheme: Liferay-Push
-xcode_sdk: iphonesimulator8.1
+xcode_sdk: iphonesimulator8.2
 
 before_install:
   - gem install cocoapods -v '0.36.1'
