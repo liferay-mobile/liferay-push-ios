@@ -170,13 +170,12 @@ public class LRPush {
 		-> [String: AnyObject]? {
 
 		let data = payload.dataUsingEncoding(NSUTF8StringEncoding)!
-		var parseError: NSError?
 
 		var json = NSJSONSerialization.JSONObjectWithData(
 			data, options: NSJSONReadingOptions.MutableContainers,
-			error: &parseError) as [String: AnyObject]
+			error: error) as [String: AnyObject]
 
-		if (parseError != nil) {
+		if (error != nil) {
 			return nil
 		}
 
