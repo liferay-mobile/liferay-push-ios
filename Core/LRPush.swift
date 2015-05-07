@@ -88,18 +88,12 @@ public class LRPush {
 	public func registerDevice() {
 		let application = UIApplication.sharedApplication()
 
-		if (application.respondsToSelector("registerForRemoteNotifications")) {
-			let types: UIUserNotificationType = (.Badge | .Sound | .Alert)
-			let settings: UIUserNotificationSettings =
-				UIUserNotificationSettings(forTypes: types, categories: nil)
+		let types: UIUserNotificationType = (.Badge | .Sound | .Alert)
+		let settings: UIUserNotificationSettings =
+			UIUserNotificationSettings(forTypes: types, categories: nil)
 
-			application.registerUserNotificationSettings(settings);
-			application.registerForRemoteNotifications()
-		}
-		else {
-			application.registerForRemoteNotificationTypes(
-				.Alert | .Badge | .Sound)
-		}
+		application.registerUserNotificationSettings(settings);
+		application.registerForRemoteNotifications()
 	}
 
 	public func registerDeviceTokenData(deviceTokenData: NSData) {
