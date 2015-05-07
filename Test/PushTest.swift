@@ -30,10 +30,10 @@ class PushTest: XCTestCase {
 		let path = bundle?.pathForResource("settings", ofType: "plist")
 
 		if (path != nil) {
-			settings = NSDictionary(contentsOfFile: path!) as [String: String]
+			settings = NSDictionary(contentsOfFile: path!) as! [String: String]
 		}
 
-		let env = NSProcessInfo.processInfo().environment as [String: String]
+		let env = NSProcessInfo.processInfo().environment as! [String: String]
 
 		for (k, v) in env {
 			settings[k] = v
@@ -58,9 +58,9 @@ class PushTest: XCTestCase {
 		let push = LRPush.withSession(session)
 			.onPushNotification({
 				let notification = $0 as [String: AnyObject]
-				XCTAssertEqual("message", notification["body"] as String)
+				XCTAssertEqual("message", notification["body"] as! String)
 
-				let payload = notification["payload"] as [String: String]
+				let payload = notification["payload"] as! [String: String]
 				XCTAssertEqual("world", payload["hello"]!)
 			})
 			.onFailure({
@@ -115,8 +115,8 @@ class PushTest: XCTestCase {
 			.onSuccess({
 				let device = $0 as [String: AnyObject]!
 				self.assertDevice(
-					"740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf" +
-						"61bb78ad",
+					"740F4707BEBCF74F9B7C25D48E3358945F6AA01DA5DDB387462C7EAF" +
+						"61BB78AD",
 					device: device)
 
 				expectation.fulfill()
@@ -148,10 +148,12 @@ class PushTest: XCTestCase {
 		waitForExpectationsWithTimeout(timeout, handler: failed)
 	}
 
-	private func assertDevice(deviceToken: String, device: [String: AnyObject]) {
+	private func assertDevice(
+		deviceToken: String, device: [String: AnyObject]) {
+
 		XCTAssertNotNil(device)
-		XCTAssertEqual(deviceToken, device["token"]! as String)
-		XCTAssertEqual("apple", device["platform"]! as String)
+		XCTAssertEqual(deviceToken, device["token"] as! String)
+		XCTAssertEqual("apple", device["platform"] as! String)
 	}
 
 	private func failed(error: NSError?) {
@@ -166,7 +168,7 @@ class PushTest: XCTestCase {
 				NSCharacterSet(charactersInString: "<> "))
 			.stringByReplacingOccurrencesOfString(" ", withString: "")
 
-		let data = NSMutableData(capacity: countElements(trim) / 2)
+		let data = NSMutableData(capacity: count(trim) / 2)
 
 		var i = trim.startIndex;
 
@@ -174,9 +176,8 @@ class PushTest: XCTestCase {
 			let byteString = trim.substringWithRange(
 				Range<String.Index>(start: i, end: i.successor().successor()))
 
-			let num = Byte(byteString.withCString { strtoul($0, nil, 16) })
-
-			data!.appendBytes([num] as [Byte], length: 1)
+			var num = byteString.withCString { strtoul($0, nil, 16) } as UInt
+			data!.appendBytes(&num, length: 1)
 		}
 
 		return data

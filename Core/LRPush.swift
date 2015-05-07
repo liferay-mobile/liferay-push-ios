@@ -50,7 +50,7 @@ public class LRPush {
 		var error: NSError?
 
 		let payload = parse(
-			pushNotification[self.payload] as String, error: &error)
+			pushNotification[self.payload] as! String, error: &error)
 
 		if let e = error {
 			failure?(e)
@@ -142,6 +142,7 @@ public class LRPush {
 		}
 
 		let payload = NSString(data: data!, encoding: NSUTF8StringEncoding)
+			as! String
 
 		self.getService().sendPushNotificationWithToUserIds(
 			userIds, payload: payload, error: &error)
@@ -173,9 +174,9 @@ public class LRPush {
 
 		var json = NSJSONSerialization.JSONObjectWithData(
 			data, options: NSJSONReadingOptions.MutableContainers,
-			error: error) as [String: AnyObject]
+			error: error) as! [String: AnyObject]
 
-		if (error != nil) {
+		if (error.memory != nil) {
 			return nil
 		}
 
