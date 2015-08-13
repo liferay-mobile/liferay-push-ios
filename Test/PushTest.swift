@@ -152,7 +152,7 @@ class PushTest: XCTestCase {
 		deviceToken: String, device: [String: AnyObject]) {
 
 		XCTAssertNotNil(device)
-		XCTAssertEqual(deviceToken, device["token"] as! String)
+		XCTAssertEqual(deviceToken.lowercaseString, device["token"] as! String)
 		XCTAssertEqual("apple", device["platform"] as! String)
 	}
 
