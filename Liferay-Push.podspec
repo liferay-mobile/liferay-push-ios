@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 	s.name					= "Liferay-Push"
 	s.module_name			= "LRPush"
-	s.version				= "1.0.5"
+	s.version				= "1.0.6"
 	s.summary				= "Liferay Push iOS Client"
 	s.homepage				= "https://github.com/brunofarache/liferay-push-ios"
 	s.license				= {
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
 	s.ios.deployment_target	= '8.0'
 	s.source				= {
 								:git => "https://github.com/brunofarache/liferay-push-ios.git",
-								:tag => "1.0.5"
+								:tag => "1.0.6"
 							}
 	s.source_files			= "{Core,Service}/**/*"
-	s.dependency			"Liferay-iOS-SDK", "6.2.0.17"
+	s.dependency			"Liferay-iOS-SDK", "6.2.0.21"
 end

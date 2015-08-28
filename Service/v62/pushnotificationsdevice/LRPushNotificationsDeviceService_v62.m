@@ -21,44 +21,44 @@
 
 - (NSDictionary *)addPushNotificationsDeviceWithToken:(NSString *)token platform:(NSString *)platform error:(NSError **)error {
 	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-		@"token": token,
-		@"platform": platform
+		@"token": [self checkNull: token],
+		@"platform": [self checkNull: platform]
 	}];
 
-	NSDictionary *_command = @{@"/push-notifications-portlet/pushnotificationsdevice/add-push-notifications-device": _params};
+	NSDictionary *_command = @{@"/push-notifications-portlet.pushnotificationsdevice/add-push-notifications-device": _params};
 
 	return (NSDictionary *)[self.session invoke:_command error:error];
 }
 
 - (NSDictionary *)deletePushNotificationsDeviceWithToken:(NSString *)token error:(NSError **)error {
 	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-		@"token": token
+		@"token": [self checkNull: token]
 	}];
 
-	NSDictionary *_command = @{@"/push-notifications-portlet/pushnotificationsdevice/delete-push-notifications-device": _params};
+	NSDictionary *_command = @{@"/push-notifications-portlet.pushnotificationsdevice/delete-push-notifications-device": _params};
 
 	return (NSDictionary *)[self.session invoke:_command error:error];
 }
 
 - (void)sendPushNotificationWithToUserIds:(NSArray *)toUserIds payload:(NSString *)payload error:(NSError **)error {
 	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-		@"toUserIds": toUserIds,
-		@"payload": payload
+		@"toUserIds": [self checkNull: toUserIds],
+		@"payload": [self checkNull: payload]
 	}];
 
-	NSDictionary *_command = @{@"/push-notifications-portlet/pushnotificationsdevice/send-push-notification": _params};
+	NSDictionary *_command = @{@"/push-notifications-portlet.pushnotificationsdevice/send-push-notification": _params};
 
 	[self.session invoke:_command error:error];
 }
 
 - (void)sendPushNotificationWithPlatform:(NSString *)platform tokens:(NSArray *)tokens payload:(NSString *)payload error:(NSError **)error {
 	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-		@"platform": platform,
-		@"tokens": tokens,
-		@"payload": payload
+		@"platform": [self checkNull: platform],
+		@"tokens": [self checkNull: tokens],
+		@"payload": [self checkNull: payload]
 	}];
 
-	NSDictionary *_command = @{@"/push-notifications-portlet/pushnotificationsdevice/send-push-notification": _params};
+	NSDictionary *_command = @{@"/push-notifications-portlet.pushnotificationsdevice/send-push-notification": _params};
 
 	[self.session invoke:_command error:error];
 }
