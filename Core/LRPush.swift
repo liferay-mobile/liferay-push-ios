@@ -17,9 +17,9 @@
 */
 public class LRPush {
 
-	let apple = "apple"
+	public static let PAYLOAD = "payload"
+
 	var failure: (NSError -> ())?
-	let payload = "payload"
 	var pushNotification: ([String: AnyObject] -> ())?
 	let session: LRSession
 	var success: ([String: AnyObject]? -> ())?
@@ -33,36 +33,26 @@ public class LRPush {
 
 		self.session
 			.onSuccess({ result -> () in
-				if let callback = self.success {
-					callback(result as? [String: AnyObject])
-				}
+				success?(result as? [String: AnyObject])
 			},
 			onFailure: { error -> () in
-				if let callback = self.failure {
-					callback(error)
-				}
+				failure?(error)
 			})
 	}
 
 	public func didReceiveRemoteNotification(
-		pushNotification: [String: AnyObject]) {
+		var pushNotification: [String: AnyObject]) {
 
-		var error: NSError?
+		do {
+			let payload = try parse(pushNotification[LRPush.PAYLOAD] as! String)
 
-		let payload = parse(
-			pushNotification[self.payload] as! String, error: &error)
+			pushNotification[LRPush.PAYLOAD] = payload
 
-		if let e = error {
-			failure?(e)
-
-			return
+			self.pushNotification?(pushNotification)
 		}
-
-		var temp = pushNotification
-
-		temp[self.payload] = payload
-
-		self.pushNotification?(temp)
+		catch let error as NSError {
+			failure?(error)
+		}
 	}
 
 	public func onFailure(failure: (NSError -> ())) -> Self {
@@ -88,7 +78,7 @@ public class LRPush {
 	public func registerDevice() {
 		let application = UIApplication.sharedApplication()
 
-		let types: UIUserNotificationType = (.Badge | .Sound | .Alert)
+		let types: UIUserNotificationType = ([.Badge, .Sound, .Alert])
 		let settings: UIUserNotificationSettings =
 			UIUserNotificationSettings(forTypes: types, categories: nil)
 
@@ -104,17 +94,15 @@ public class LRPush {
 			deviceToken += String(format: "%02X", bytes[i])
 		}
 
-		self.registerDeviceToken(deviceToken)
+		registerDeviceToken(deviceToken)
 	}
 
 	public func registerDeviceToken(deviceToken: String) {
-		var error: NSError?
-
-		self.getService().addPushNotificationsDeviceWithToken(
-			deviceToken, platform: apple, error: &error)
-
-		if let e = error {
-			failure?(e)
+		do {
+			try getService().addPushNotificationsDeviceWithToken(
+				deviceToken, platform: _APPLE)
+		}
+		catch {
 		}
 	}
 
@@ -125,35 +113,28 @@ public class LRPush {
 	public func sendToUserId(
 		userIds: [Int], notification: [String: AnyObject]) {
 
-		var error: NSError?
-		let data = NSJSONSerialization.dataWithJSONObject(
-			notification, options: NSJSONWritingOptions.allZeros, error: &error)
+		do {
+			let data = try NSJSONSerialization.dataWithJSONObject(
+				notification, options: NSJSONWritingOptions())
 
-		if let e = error {
-			failure?(e)
+			let payload = NSString(data: data, encoding: NSUTF8StringEncoding)
+				as! String
 
-			return
+			var error: NSError?
+
+			getService().sendPushNotificationWithToUserIds(
+				userIds, payload: payload, error: &error)
 		}
-
-		let payload = NSString(data: data!, encoding: NSUTF8StringEncoding)
-			as! String
-
-		self.getService().sendPushNotificationWithToUserIds(
-			userIds, payload: payload, error: &error)
-
-		if let e = error {
-			failure?(e)
+		catch let error as NSError {
+			failure?(error)
 		}
 	}
 
 	public func unregisterDeviceToken(deviceToken: String) {
-		var error: NSError?
-
-		self.getService().deletePushNotificationsDeviceWithToken(
-			deviceToken, error: &error)
-
-		if let e = error {
-			failure?(e)
+		do {
+			try getService().deletePushNotificationsDeviceWithToken(deviceToken)
+		}
+		catch {
 		}
 	}
 
@@ -161,20 +142,16 @@ public class LRPush {
 		return LRPushNotificationsDeviceService_v62(session: self.session)
 	}
 
-	private func parse(payload: String, error: NSErrorPointer)
-		-> [String: AnyObject]? {
+	private func parse(payload: String) throws
+		-> [String: AnyObject] {
 
 		let data = payload.dataUsingEncoding(NSUTF8StringEncoding)!
 
-		var json = NSJSONSerialization.JSONObjectWithData(
-			data, options: NSJSONReadingOptions.MutableContainers,
-			error: error) as! [String: AnyObject]
-
-		if (error.memory != nil) {
-			return nil
-		}
-
-		return json;
+		return try NSJSONSerialization.JSONObjectWithData(
+			data, options: NSJSONReadingOptions.MutableContainers)
+			as! [String: AnyObject]
 	}
+
+	private let _APPLE = "apple"
 
 }

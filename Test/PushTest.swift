@@ -33,7 +33,7 @@ class PushTest: XCTestCase {
 			settings = NSDictionary(contentsOfFile: path!) as! [String: String]
 		}
 
-		let env = NSProcessInfo.processInfo().environment as! [String: String]
+		let env = NSProcessInfo.processInfo().environment 
 
 		for (k, v) in env {
 			settings[k] = v
@@ -58,7 +58,7 @@ class PushTest: XCTestCase {
 		let push = LRPush.withSession(session)
 			.onPushNotification({
 				let notification = $0 as [String: AnyObject]
-				XCTAssertEqual("message", notification["body"] as! String)
+				XCTAssertEqual("message", notification["body"] as? String)
 
 				let payload = notification["payload"] as! [String: String]
 				XCTAssertEqual("world", payload["hello"]!)
@@ -90,21 +90,18 @@ class PushTest: XCTestCase {
 		waitForExpectationsWithTimeout(timeout) { (error) in
 			if (error != nil) {
 				self.failed(error)
-
-				return
 			}
-
-			expectation = self.expectationWithDescription("unregister")
-
-			push.unregisterDeviceToken(deviceToken)
-
-			self.waitForExpectationsWithTimeout(
-				self.timeout, handler: self.failed)
 		}
+
+		expectation = self.expectationWithDescription("unregister")
+
+		push.unregisterDeviceToken(deviceToken)
+
+		self.waitForExpectationsWithTimeout(self.timeout, handler: self.failed)
 	}
 
 	func testRegisterDeviceTokenData() {
-		var expectation = expectationWithDescription("register")
+		let expectation = expectationWithDescription("register")
 
 		let deviceToken = "<740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d " +
 			"a5ddb387 462c7eaf 61bb78ad>"
@@ -132,7 +129,7 @@ class PushTest: XCTestCase {
 	}
 
 	func testSendPushNotification() {
-		var expectation = expectationWithDescription("send push notification")
+		let expectation = expectationWithDescription("send push notification")
 
 		let push = LRPush.withSession(self.session)
 			.onSuccess({ result in
@@ -152,8 +149,8 @@ class PushTest: XCTestCase {
 		deviceToken: String, device: [String: AnyObject]) {
 
 		XCTAssertNotNil(device)
-		XCTAssertEqual(deviceToken.lowercaseString, device["token"] as! String)
-		XCTAssertEqual("apple", device["platform"] as! String)
+		XCTAssertEqual(deviceToken, device["token"] as? String)
+		XCTAssertEqual("apple", device["platform"] as? String)
 	}
 
 	private func failed(error: NSError?) {
@@ -168,7 +165,7 @@ class PushTest: XCTestCase {
 				NSCharacterSet(charactersInString: "<> "))
 			.stringByReplacingOccurrencesOfString(" ", withString: "")
 
-		let data = NSMutableData(capacity: count(trim) / 2)
+		let data = NSMutableData(capacity: trim.characters.count / 2)
 
 		var i = trim.startIndex;
 
