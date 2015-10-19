@@ -220,6 +220,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LR;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Bruno Farache";
 				TargetAttributes = {
