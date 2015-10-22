@@ -78,7 +78,7 @@ public class LRPush {
 	public func registerDevice() {
 		let application = UIApplication.sharedApplication()
 
-		let types: UIUserNotificationType = ([.Badge, .Sound, .Alert])
+		let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
 		let settings: UIUserNotificationSettings =
 			UIUserNotificationSettings(forTypes: types, categories: nil)
 
@@ -139,7 +139,7 @@ public class LRPush {
 	}
 
 	private func getService() -> LRPushNotificationsDeviceService_v62 {
-		return LRPushNotificationsDeviceService_v62(session: self.session)
+		return LRPushNotificationsDeviceService_v62(session: session)
 	}
 
 	private func parse(payload: String) throws

@@ -33,7 +33,7 @@ class PushTest: XCTestCase {
 			settings = NSDictionary(contentsOfFile: path!) as! [String: String]
 		}
 
-		let env = NSProcessInfo.processInfo().environment 
+		let env = NSProcessInfo.processInfo().environment
 
 		for (k, v) in env {
 			settings[k] = v
@@ -93,11 +93,11 @@ class PushTest: XCTestCase {
 			}
 		}
 
-		expectation = self.expectationWithDescription("unregister")
+		expectation = expectationWithDescription("unregister")
 
 		push.unregisterDeviceToken(deviceToken)
 
-		self.waitForExpectationsWithTimeout(self.timeout, handler: self.failed)
+		waitForExpectationsWithTimeout(timeout, handler: failed)
 	}
 
 	func testRegisterDeviceTokenData() {
@@ -112,8 +112,8 @@ class PushTest: XCTestCase {
 			.onSuccess({
 				let device = $0 as [String: AnyObject]!
 				self.assertDevice(
-					"740F4707BEBCF74F9B7C25D48E3358945F6AA01DA5DDB387462C7EAF" +
-						"61BB78AD",
+					"740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf" +
+						"61bb78ad",
 					device: device)
 
 				expectation.fulfill()
@@ -131,7 +131,7 @@ class PushTest: XCTestCase {
 	func testSendPushNotification() {
 		let expectation = expectationWithDescription("send push notification")
 
-		let push = LRPush.withSession(self.session)
+		let push = LRPush.withSession(session)
 			.onSuccess({ result in
 				expectation.fulfill()
 			})
