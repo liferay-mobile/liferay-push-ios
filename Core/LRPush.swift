@@ -32,11 +32,11 @@ public class LRPush {
 		self.session = LRSession(session: session)
 
 		self.session
-			.onSuccess({ result -> () in
-				success?(result as? [String: AnyObject])
+			.onSuccess({ [unowned self] result -> () in
+				self.success?(result as? [String: AnyObject])
 			},
-			onFailure: { error -> () in
-				failure?(error)
+			onFailure: { [unowned self] error -> () in
+				self.failure?(error)
 			})
 	}
 
