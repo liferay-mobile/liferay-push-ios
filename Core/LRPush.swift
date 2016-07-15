@@ -41,14 +41,16 @@ public class LRPush {
 	}
 
 	public func didReceiveRemoteNotification(
-		var pushNotification: [String: AnyObject]) {
+		pushNotification: [String: AnyObject]) {
+
+		var mutablePushNotification = pushNotification
 
 		do {
 			let payload = try parse(pushNotification[LRPush.PAYLOAD] as! String)
 
-			pushNotification[LRPush.PAYLOAD] = payload
+			mutablePushNotification[LRPush.PAYLOAD] = payload
 
-			self.pushNotification?(pushNotification)
+			self.pushNotification?(mutablePushNotification)
 		}
 		catch let error as NSError {
 			failure?(error)
@@ -90,7 +92,7 @@ public class LRPush {
 		var deviceToken = ""
 		let bytes = UnsafePointer<CUnsignedChar>(deviceTokenData.bytes)
 
-		for (var i = 0; i < deviceTokenData.length; i++) {
+		for i in 0 ..< deviceTokenData.length {
 			deviceToken += String(format: "%02X", bytes[i])
 		}
 
