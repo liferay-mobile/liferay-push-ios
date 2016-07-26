@@ -47,9 +47,7 @@ public class LRPush {
 
 		do {
 			let payload = try parse(pushNotification[LRPush.PAYLOAD] as! String)
-
 			mutablePushNotification[LRPush.PAYLOAD] = payload
-
 			self.pushNotification?(mutablePushNotification)
 		}
 		catch let error as NSError {
