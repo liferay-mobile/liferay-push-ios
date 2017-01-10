@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
 	s.name					= "Liferay-Push"
 	s.module_name			= "LRPush"
-	s.version				= "1.0.12"
+	s.version				= "1.0.13"
 	s.summary				= "Liferay Push iOS Client"
-	s.homepage				= "https://github.com/brunofarache/liferay-push-ios"
+	s.homepage				= "https://github.com/liferay-mobile/liferay-push-ios"
 	s.license				= {
 								:type => "LPGL 2.1",
-								:file => "copyright.txt"
+								:file => "copyright.tx3"
 							}
 	s.authors				= {
 								"Bruno Farache" => "bruno.farache@liferay.com"
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
 	s.platform				= :ios
 	s.ios.deployment_target	= "8.0"
 	s.source				= {
-								:git => "https://github.com/brunofarache/liferay-push-ios.git",
-								:tag => "1.0.12"
+								:git => "https://github.com/liferay-mobile/liferay-push-ios.git",
+								:tag => "1.0.13"
 							}
 	s.source_files			= "{Core,Service}/**/*"
 	s.dependency			"Liferay-iOS-SDK"
