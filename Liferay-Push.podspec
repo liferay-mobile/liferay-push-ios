@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 	s.homepage				= "https://github.com/liferay-mobile/liferay-push-ios"
 	s.license				= {
 								:type => "LPGL 2.1",
-								:file => "copyright.tx3"
+								:file => "copyright.txt"
 							}
 	s.authors				= {
 								"Bruno Farache" => "bruno.farache@liferay.com"
