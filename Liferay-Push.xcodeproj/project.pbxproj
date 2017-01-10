@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C51C0CA5F450E90B284AC58 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10E23B4E6477C79A22DA17A /* Pods.framework */; };
+		3147D83D7E4F9F649EFF6154 /* Pods_Liferay_Push.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B441A934891007DD67EBCAA6 /* Pods_Liferay_Push.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		CC397A691AC5C22200208027 /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC397A651AC5C22200208027 /* copyright.txt */; };
@@ -21,16 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1484AFBB66632F6ADEF636DA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		481DC7505B5FAB6F83793CF8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Liferay-Push.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Liferay-Push.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AE195388D20070C39A /* Liferay-Push.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Liferay-Push.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63C8DEC280D65B4CD624AAB5 /* libPods-Liferay-Push.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Liferay-Push.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		91D4F3E1AAEE0701A5E76216 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A81CB4F2910187118DD98117 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liferay-Push.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push.release.xcconfig"; sourceTree = "<group>"; };
+		B441A934891007DD67EBCAA6 /* Pods_Liferay_Push.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Liferay_Push.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0C80E01ACA212900776B5F /* Liferay-Push-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Liferay-Push-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC397A651AC5C22200208027 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		CC397A661AC5C22200208027 /* Liferay-Push.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Liferay-Push.podspec"; sourceTree = "<group>"; };
@@ -44,8 +41,8 @@
 		CCB9E5451AC4CEDE008B2348 /* Test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-Prefix.pch"; sourceTree = "<group>"; };
 		CCEBE3121ACAB59B00ADCFF6 /* LRMobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LRMobileSDK.framework; path = "Pods/../build/Debug-iphoneos/Pods/LRMobileSDK.framework"; sourceTree = "<group>"; };
 		CCF220E11AC4D5C100BCD3DD /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
+		D54FEA1A620681E43F5429DC /* Pods-Liferay-Push.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liferay-Push.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push.debug.xcconfig"; sourceTree = "<group>"; };
 		E10E23B4E6477C79A22DA17A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F43467248379B49A6AC1B08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,22 +53,13 @@
 				CCEBE3131ACAB59B00ADCFF6 /* LRMobileSDK.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				4C51C0CA5F450E90B284AC58 /* Pods.framework in Frameworks */,
+				3147D83D7E4F9F649EFF6154 /* Pods_Liferay_Push.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F335B78E619B439163FA890 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				91D4F3E1AAEE0701A5E76216 /* Pods.debug.xcconfig */,
-				481DC7505B5FAB6F83793CF8 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +72,7 @@
 				CC397A681AC5C22200208027 /* README.md */,
 				CC397A6D1AC5C2F600208027 /* Xcode */,
 				BA91E4A3C39BF17F3C1FADDE /* Frameworks */,
-				3F335B78E619B439163FA890 /* Pods */,
+				A2C39E83F630B21451FEA96C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +91,17 @@
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-				F43467248379B49A6AC1B08D /* libPods.a */,
-				63C8DEC280D65B4CD624AAB5 /* libPods-Liferay-Push.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2C39E83F630B21451FEA96C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D54FEA1A620681E43F5429DC /* Pods-Liferay-Push.debug.xcconfig */,
+				7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BA91E4A3C39BF17F3C1FADDE /* Frameworks */ = {
@@ -114,6 +109,7 @@
 			children = (
 				CCEBE3121ACAB59B00ADCFF6 /* LRMobileSDK.framework */,
 				E10E23B4E6477C79A22DA17A /* Pods.framework */,
+				B441A934891007DD67EBCAA6 /* Pods_Liferay_Push.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				6003F58C195388D20070C39A /* Frameworks */,
-				DFDEF1D66D46072CE708E777 /* Pods */,
 				6003F58B195388D20070C39A /* Products */,
 			);
 			name = Xcode;
@@ -181,15 +176,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DFDEF1D66D46072CE708E777 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1484AFBB66632F6ADEF636DA /* Pods.debug.xcconfig */,
-				A81CB4F2910187118DD98117 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,12 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Liferay-Push" */;
 			buildPhases = (
-				9532F67EC136E24F502C0AB6 /* Check Pods Manifest.lock */,
+				D1DA0C787CB85F9482B0A2FF /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				4AC3FFE94DAF8B85240659F6 /* Copy Pods Resources */,
-				FF72302C9ACAE5751A153EFD /* Embed Pods Frameworks */,
+				62077884089EB442CCED9B77 /* [CP] Embed Pods Frameworks */,
+				E9036A60D9831E7A9DE0E44B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,6 +212,7 @@
 				ORGANIZATIONNAME = "Bruno Farache";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
+						LastSwiftMigration = 0820;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
 				};
@@ -263,29 +250,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4AC3FFE94DAF8B85240659F6 /* Copy Pods Resources */ = {
+		62077884089EB442CCED9B77 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9532F67EC136E24F502C0AB6 /* Check Pods Manifest.lock */ = {
+		D1DA0C787CB85F9482B0A2FF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,19 +280,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FF72302C9ACAE5751A153EFD /* Embed Pods Frameworks */ = {
+		E9036A60D9831E7A9DE0E44B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -398,7 +385,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91D4F3E1AAEE0701A5E76216 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = D54FEA1A620681E43F5429DC /* Pods-Liferay-Push.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -419,6 +406,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/Liferay-Push-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -426,7 +414,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 481DC7505B5FAB6F83793CF8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -442,6 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test/Supporting Files/Liferay-Push-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

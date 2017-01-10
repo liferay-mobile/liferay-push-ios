@@ -15,39 +15,38 @@
 /**
 * @author Bruno Farache
 */
-public class LRPush {
+open class LRPush {
 
-	public static let PAYLOAD = "payload"
+	open static let PAYLOAD = "payload"
 
-	var failure: (NSError -> ())?
-	var pushNotification: ([String: AnyObject] -> ())?
+	var failure: LRFailureBlock?
+	var pushNotification: (([String: AnyObject]) -> ())?
 	let session: LRSession
-	var success: ([String: AnyObject]? -> ())?
+	var success: (([String: AnyObject]?) -> ())?
 
-	public class func withSession(session: LRSession) -> LRPush {
+	open class func withSession(_ session: LRSession) -> LRPush {
 		return LRPush(session: session)
 	}
 
 	init(session: LRSession) {
 		self.session = LRSession(session: session)
 
-		self.session
-			.onSuccess({ result -> () in
-				self.success?(result as? [String: AnyObject])
-			},
-			onFailure: { error -> () in
-				self.failure?(error)
-			})
+		self.session.onSuccess({ result in
+			self.success?(result as? [String: AnyObject])
+		},
+		onFailure: { error in
+			self.failure?(error)
+		})
 	}
 
-	public func didReceiveRemoteNotification(
-		pushNotification: [String: AnyObject]) {
+	open func didReceiveRemoteNotification(
+		_ pushNotification: [String: AnyObject]) {
 
 		var mutablePushNotification = pushNotification
 
 		do {
 			let payload = try parse(pushNotification[LRPush.PAYLOAD] as! String)
-			mutablePushNotification[LRPush.PAYLOAD] = payload
+			mutablePushNotification[LRPush.PAYLOAD] = payload as AnyObject?
 			self.pushNotification?(mutablePushNotification)
 		}
 		catch let error as NSError {
@@ -55,103 +54,111 @@ public class LRPush {
 		}
 	}
 
-	public func onFailure(failure: (NSError -> ())) -> Self {
+	open func onFailure(_ failure: @escaping LRFailureBlock) -> Self {
 		self.failure = failure
 
 		return self
 	}
 
-	public func onPushNotification(
-		pushNotification: ([String: AnyObject] -> ()))-> Self {
+	open func onPushNotification(
+		_ pushNotification: @escaping (([String: AnyObject]) -> ()))-> Self {
 
 		self.pushNotification = pushNotification
 
 		return self
 	}
 
-	public func onSuccess(success: ([String: AnyObject]? -> ())) -> Self {
+	open func onSuccess(_ success: @escaping (([String: AnyObject]?)
+		-> ())) -> Self {
+		
 		self.success = success
 
 		return self
 	}
 
-	public func registerDevice() {
-		let application = UIApplication.sharedApplication()
+	open func registerDevice() {
+		let application = UIApplication.shared
 
-		let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
-		let settings: UIUserNotificationSettings =
-			UIUserNotificationSettings(forTypes: types, categories: nil)
+		let types: UIUserNotificationType = [.badge, .sound, .alert]
+		let settings = UIUserNotificationSettings.init(
+			types: types, categories: nil)
 
 		application.registerUserNotificationSettings(settings);
 		application.registerForRemoteNotifications()
 	}
 
-	public func registerDeviceTokenData(deviceTokenData: NSData) {
+	open func registerDeviceTokenData(_ deviceTokenData: Data) {
 		var deviceToken = ""
-		let bytes = UnsafePointer<CUnsignedChar>(deviceTokenData.bytes)
+		let bytes = UnsafeMutablePointer<CUnsignedChar>.allocate(
+			capacity: deviceTokenData.count)
 
-		for i in 0 ..< deviceTokenData.length {
+		bytes.initialize(from: deviceTokenData)
+
+		for i in 0 ..< deviceTokenData.count {
 			deviceToken += String(format: "%02X", bytes[i])
 		}
 
 		registerDeviceToken(deviceToken)
 	}
 
-	public func registerDeviceToken(deviceToken: String) {
+	open func registerDeviceToken(_ deviceToken: String) {
 		do {
-			try getService().addPushNotificationsDeviceWithToken(
-				deviceToken, platform: _APPLE)
+			try getService().addPushNotificationsDevice(
+				withToken: deviceToken, platform: _APPLE)
 		}
 		catch {
 		}
 	}
 
-	public func sendToUserId(userId: Int, notification: [String: AnyObject]) {
+	open func sendToUserId(_ userId: Int, notification: [String: AnyObject]) {
 		sendToUserId([userId], notification: notification)
 	}
 
-	public func sendToUserId(
-		userIds: [Int], notification: [String: AnyObject]) {
+	open func sendToUserId(
+		_ userIds: [Int], notification: [String: AnyObject]) {
 
 		do {
-			let data = try NSJSONSerialization.dataWithJSONObject(
-				notification, options: NSJSONWritingOptions())
+			let data = try JSONSerialization.data(
+				withJSONObject: notification,
+				options: JSONSerialization.WritingOptions())
 
-			let payload = NSString(data: data, encoding: NSUTF8StringEncoding)
-				as! String
+			let payload = String(
+				data: data, encoding: String.Encoding.utf8)
 
 			var error: NSError?
 
-			getService().sendPushNotificationWithToUserIds(
-				userIds, payload: payload, error: &error)
+			getService().sendPushNotificationWith(
+				toUserIds: userIds, payload: payload, error: &error)
 		}
 		catch let error as NSError {
 			failure?(error)
 		}
 	}
 
-	public func unregisterDeviceToken(deviceToken: String) {
+	open func unregisterDeviceToken(_ deviceToken: String) {
 		do {
-			try getService().deletePushNotificationsDeviceWithToken(deviceToken)
+			try getService().deletePushNotificationsDevice(
+				withToken: deviceToken)
 		}
 		catch {
 		}
 	}
 
-	private func getService() -> LRPushNotificationsDeviceService_v62 {
+	fileprivate func getService() -> LRPushNotificationsDeviceService_v62 {
 		return LRPushNotificationsDeviceService_v62(session: session)
 	}
 
-	private func parse(payload: String) throws
+	fileprivate func parse(_ payload: String) throws
 		-> [String: AnyObject] {
 
-		let data = payload.dataUsingEncoding(NSUTF8StringEncoding)!
+		let data = payload.data(using: String.Encoding.utf8)!
 
-		return try NSJSONSerialization.JSONObjectWithData(
-			data, options: NSJSONReadingOptions.MutableContainers)
+			return try JSONSerialization.jsonObject(
+				with: data,
+				options: JSONSerialization.ReadingOptions.mutableContainers)
 			as! [String: AnyObject]
 	}
 
-	private let _APPLE = "apple"
+	fileprivate let _APPLE = "apple"
 
 }

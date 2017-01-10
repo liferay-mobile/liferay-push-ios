@@ -20,20 +20,25 @@ import XCTest
 class PushTest: XCTestCase {
 
 	var session: LRSession!
-	var timeout: NSTimeInterval!
+	var timeout: TimeInterval!
+	var failureCompletionHandler : XCWaitCompletionHandler!
 
 	override func setUp() {
 		super.setUp()
 
 		var settings: [String: String] = [:]
-		let bundle = NSBundle(identifier: "com.liferay.mobile.sdk.Liferay-Push")
-		let path = bundle?.pathForResource("settings", ofType: "plist")
+		let bundle = Bundle(identifier: "com.liferay.mobile.sdk.Liferay-Push")
+		let path = bundle?.path(forResource: "settings", ofType: "plist")
+
+		failureCompletionHandler = { error in
+			self.failed(error as? NSError)
+		}
 
 		if (path != nil) {
 			settings = NSDictionary(contentsOfFile: path!) as! [String: String]
 		}
 
-		let env = NSProcessInfo.processInfo().environment
+		let env = ProcessInfo.processInfo.environment
 
 		for (k, v) in env {
 			settings[k] = v
@@ -63,45 +68,47 @@ class PushTest: XCTestCase {
 				let payload = notification["payload"] as! [String: String]
 				XCTAssertEqual("world", payload["hello"]!)
 			})
-			.onFailure({
-				self.failed($0)
+			.onFailure({ error in
+				self.failed(error as? NSError)
 			})
 
-		push.didReceiveRemoteNotification(pushNotification)
+		push.didReceiveRemoteNotification(
+			pushNotification as [String : AnyObject])
 	}
 
 	func testRegisterDeviceToken() {
-		var expectation = expectationWithDescription("register")
+		var expectation = self.expectation(description: "register")
 		let deviceToken = "token"
 
 		let push = LRPush.withSession(session)
 			.onSuccess({
 				let device = $0 as [String: AnyObject]!
-				self.assertDevice(deviceToken, device: device)
+				self.assertDevice(deviceToken, device: device!)
 				expectation.fulfill()
 			})
-			.onFailure({
-				self.failed($0)
+			.onFailure({ error in
+				self.failed(error as? NSError)
 				expectation.fulfill()
 			})
 
 		push.registerDeviceToken(deviceToken)
 
-		waitForExpectationsWithTimeout(timeout) { (error) in
+		waitForExpectations(timeout: timeout) { (error) in
 			if (error != nil) {
-				self.failed(error)
+				self.failed(error as NSError?)
 			}
 		}
 
-		expectation = expectationWithDescription("unregister")
+		expectation = self.expectation(description: "unregister")
 
 		push.unregisterDeviceToken(deviceToken)
 
-		waitForExpectationsWithTimeout(timeout, handler: failed)
+		waitForExpectations(
+			timeout: timeout, handler: failureCompletionHandler)
 	}
 
 	func testRegisterDeviceTokenData() {
-		let expectation = expectationWithDescription("register")
+		let expectation = self.expectation(description: "register")
 
 		let deviceToken = "<740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d " +
 			"a5ddb387 462c7eaf 61bb78ad>"
@@ -112,72 +119,81 @@ class PushTest: XCTestCase {
 			.onSuccess({
 				let device = $0 as [String: AnyObject]!
 				self.assertDevice(
-					"740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf" +
-						"61bb78ad",
-					device: device)
+					"740F4707BEBCF74F9B7C25D48E3358945F6AA01DA5DDB387462C7EAF" +
+						"61BB78AD",
+					device: device!)
 
 				expectation.fulfill()
 			})
-			.onFailure({
-				self.failed($0)
+			.onFailure({ error in
+				self.failed(error as? NSError)
 				expectation.fulfill()
 			})
 
 		push.registerDeviceTokenData(deviceTokenData!)
 
-		waitForExpectationsWithTimeout(timeout, handler:failed)
+		waitForExpectations(
+			timeout: timeout, handler: failureCompletionHandler)
 	}
 
 	func testSendPushNotification() {
-		let expectation = expectationWithDescription("send push notification")
+		let expectation = self.expectation(
+			description: "send push notification")
 
 		let push = LRPush.withSession(session)
 			.onSuccess({ result in
 				expectation.fulfill()
 			})
-			.onFailure({
-				self.failed($0)
+			.onFailure({ error in
+				self.failed(error as? NSError)
 				expectation.fulfill()
 			})
 
-		push.sendToUserId(0, notification: ["message": "hello!"])
+		push.sendToUserId(0, notification: ["message": "hello!" as AnyObject])
 
-		waitForExpectationsWithTimeout(timeout, handler: failed)
+		waitForExpectations(
+			timeout: timeout, handler: failureCompletionHandler)
 	}
 
-	private func assertDevice(
-		deviceToken: String, device: [String: AnyObject]) {
+	fileprivate func assertDevice(
+		_ deviceToken: String, device: [String: AnyObject]) {
 
 		XCTAssertNotNil(device)
 		XCTAssertEqual(deviceToken, device["token"] as? String)
 		XCTAssertEqual("apple", device["platform"] as? String)
 	}
 
-	private func failed(error: NSError?) {
+	fileprivate func failed(_ error: NSError?) {
 		if (error != nil) {
 			XCTFail(error!.localizedDescription)
 		}
 	}
 
-	private func toData(deviceToken: String) -> NSData? {
+	fileprivate func toData(_ deviceToken: String) -> Data? {
 		let trim = deviceToken
-			.stringByTrimmingCharactersInSet(
-				NSCharacterSet(charactersInString: "<> "))
-			.stringByReplacingOccurrencesOfString(" ", withString: "")
+			.trimmingCharacters(
+				in: CharacterSet(charactersIn: "<> "))
+			.replacingOccurrences(of: " ", with: "")
 
 		let data = NSMutableData(capacity: trim.characters.count / 2)
 
 		var i = trim.startIndex;
+		while (i < trim.endIndex) {
 
-		for (; i < trim.endIndex; i = i.successor().successor()) {
-			let byteString = trim.substringWithRange(
-				Range<String.Index>(start: i, end: i.successor().successor()))
+			let newEndIndex = trim.index(after: trim.index(after: i))
+
+			let range = Range<String.Index>(
+				uncheckedBounds: (lower: i, upper: newEndIndex))
+
+			let byteString = trim.substring(with: range)
 
 			var num = byteString.withCString { strtoul($0, nil, 16) } as UInt
-			data!.appendBytes(&num, length: 1)
+			data!.append(&num, length: 1)
+
+			i = newEndIndex
 		}
 
-		return data
+		return data as Data?
 	}
 
 }
