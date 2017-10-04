@@ -15,7 +15,7 @@
 /**
 * @author Bruno Farache
 */
-open class LRPush {
+@objc open class LRPush: NSObject {
 
 	open static let PAYLOAD = "payload"
 
@@ -31,6 +31,7 @@ open class LRPush {
 
 	init(session: LRSession) {
 		self.session = LRSession(session: session)
+		super.init()
 
 		self.session.onSuccess({ result in
 			self.success?(result as? [String: AnyObject])
@@ -112,10 +113,10 @@ open class LRPush {
 	}
 
 	open func sendToUserId(_ userId: Int, notification: [String: AnyObject]) {
-		sendToUserId([userId], notification: notification)
+		sendToUserIds([userId], notification: notification)
 	}
 
-	open func sendToUserId(
+	open func sendToUserIds(
 		_ userIds: [Int], notification: [String: AnyObject]) {
 
 		do {
