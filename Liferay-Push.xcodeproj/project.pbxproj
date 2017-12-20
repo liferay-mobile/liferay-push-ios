@@ -11,6 +11,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		B2CCE6781FE92EF500287656 /* LRPushNotificationsDeviceService_v7.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CCE6771FE92EF500287656 /* LRPushNotificationsDeviceService_v7.m */; };
+		B2D337471FEA841900F1FD3B /* LRPushNotificationServiceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D337461FEA841900F1FD3B /* LRPushNotificationServiceWrapper.swift */; };
 		CC397A691AC5C22200208027 /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC397A651AC5C22200208027 /* copyright.txt */; };
 		CC397A6A1AC5C22200208027 /* Liferay-Push.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CC397A661AC5C22200208027 /* Liferay-Push.podspec */; };
 		CC397A6B1AC5C22200208027 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CC397A671AC5C22200208027 /* Podfile */; };
@@ -30,6 +31,7 @@
 		7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liferay-Push.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push.release.xcconfig"; sourceTree = "<group>"; };
 		B2CCE6761FE92EF500287656 /* LRPushNotificationsDeviceService_v7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v7.h; sourceTree = "<group>"; };
 		B2CCE6771FE92EF500287656 /* LRPushNotificationsDeviceService_v7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPushNotificationsDeviceService_v7.m; sourceTree = "<group>"; };
+		B2D337461FEA841900F1FD3B /* LRPushNotificationServiceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPushNotificationServiceWrapper.swift; sourceTree = "<group>"; };
 		B441A934891007DD67EBCAA6 /* Pods_Liferay_Push.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Liferay_Push.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0C80E01ACA212900776B5F /* Liferay-Push-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Liferay-Push-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC397A651AC5C22200208027 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				CC73C7AF1AC60711009052D1 /* LRPush.swift */,
+				B2D337461FEA841900F1FD3B /* LRPushNotificationServiceWrapper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				CC73C7B01AC60711009052D1 /* LRPush.swift in Sources */,
 				B2CCE6781FE92EF500287656 /* LRPushNotificationsDeviceService_v7.m in Sources */,
 				CC397A711AC5C52300208027 /* PushTest.swift in Sources */,
+				B2D337471FEA841900F1FD3B /* LRPushNotificationServiceWrapper.swift in Sources */,
 				CCB9E53F1AC4CE12008B2348 /* LRPushNotificationsDeviceService_v62.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
