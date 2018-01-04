@@ -15,7 +15,7 @@
 /**
 * @author Bruno Farache
 */
-open class LRPush {
+@objc open class LRPush: NSObject {
 
 	open static let PAYLOAD = "payload"
 
@@ -23,6 +23,7 @@ open class LRPush {
 	var pushNotification: (([String: AnyObject]) -> ())?
 	let session: LRSession
 	var success: (([String: AnyObject]?) -> ())?
+	var portalVersion = 62
 
 	open class func withSession(_ session: LRSession) -> LRPush {
 		return LRPush(session: session)
@@ -30,6 +31,7 @@ open class LRPush {
 
 	init(session: LRSession) {
 		self.session = LRSession(session: session)
+		super.init()
 
 		self.session.onSuccess({ result in
 			self.success?(result as? [String: AnyObject])
@@ -111,10 +113,10 @@ open class LRPush {
 	}
 
 	open func sendToUserId(_ userId: Int, notification: [String: AnyObject]) {
-		sendToUserId([userId], notification: notification)
+		sendToUserIds([userId], notification: notification)
 	}
 
-	open func sendToUserId(
+	open func sendToUserIds(
 		_ userIds: [Int], notification: [String: AnyObject]) {
 
 		do {
@@ -127,8 +129,8 @@ open class LRPush {
 
 			var error: NSError?
 
-			getService().sendPushNotificationWith(
-				toUserIds: userIds, payload: payload, error: &error)
+			try getService().sendPushNotificationWith(
+				toUserIds: userIds, payload: payload!, error: &error)
 		}
 		catch let error as NSError {
 			failure?(error)
@@ -144,19 +146,26 @@ open class LRPush {
 		}
 	}
 
-	fileprivate func getService() -> LRPushNotificationsDeviceService_v62 {
-		return LRPushNotificationsDeviceService_v62(session: session)
+	open func withPortalVersion(_ portalVersion: Int) -> Self
+	{
+		self.portalVersion = portalVersion
+		return self
+	}
+
+
+	fileprivate func getService() -> LRPushNotificationServiceWrapper {
+		return LRPushNotificationServiceWrapper(session: self.session, self.portalVersion)
 	}
 
 	fileprivate func parse(_ payload: String) throws
 		-> [String: AnyObject] {
 
-		let data = payload.data(using: String.Encoding.utf8)!
+			let data = payload.data(using: String.Encoding.utf8)!
 
 			return try JSONSerialization.jsonObject(
 				with: data,
 				options: JSONSerialization.ReadingOptions.mutableContainers)
-			as! [String: AnyObject]
+				as! [String: AnyObject]
 	}
 
 	fileprivate let _APPLE = "apple"
