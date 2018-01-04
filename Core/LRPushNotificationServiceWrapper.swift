@@ -12,12 +12,13 @@
 * details.
 */
 
-open class LRPushNotificationServiceWrapper {
+@objc open class LRPushNotificationServiceWrapper: NSObject {
 
 	var service62: LRPushNotificationsDeviceService_v62?
 	var service70: LRPushNotificationsDeviceService_v7?
 
 	init(session: LRSession, _ portalVersion: Int) {
+		super.init()
 		if (portalVersion == 62) {
 			self.service62 = LRPushNotificationsDeviceService_v62(session: session)
 		} else {

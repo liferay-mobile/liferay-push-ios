@@ -29,6 +29,7 @@
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AE195388D20070C39A /* Liferay-Push.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Liferay-Push.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liferay-Push.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push.release.xcconfig"; sourceTree = "<group>"; };
+		B275DF121FFE71EF00594880 /* LiferayPush-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiferayPush-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2CCE6761FE92EF500287656 /* LRPushNotificationsDeviceService_v7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v7.h; sourceTree = "<group>"; };
 		B2CCE6771FE92EF500287656 /* LRPushNotificationsDeviceService_v7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPushNotificationsDeviceService_v7.m; sourceTree = "<group>"; };
 		B2D337461FEA841900F1FD3B /* LRPushNotificationServiceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPushNotificationServiceWrapper.swift; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				B275DF121FFE71EF00594880 /* LiferayPush-Bridging-Header.h */,
 				CCB9E5341AC4CE12008B2348 /* Core */,
 				CCB9E5371AC4CE12008B2348 /* Service */,
 				CCB9E53C1AC4CE12008B2348 /* Test */,
@@ -236,6 +238,7 @@
 				ORGANIZATIONNAME = "Bruno Farache";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
+						DevelopmentTeam = 7H3SPU5TB9;
 						LastSwiftMigration = 0820;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -309,7 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E9036A60D9831E7A9DE0E44B /* [CP] Copy Pods Resources */ = {
@@ -366,6 +369,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -385,7 +389,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Liferay-Push";
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/aelian/dev/workspaceStudio/liferay-push-ios/LiferayPush-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -412,6 +419,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -423,7 +431,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "Liferay-Push";
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/aelian/dev/workspaceStudio/liferay-push-ios/LiferayPush-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -436,6 +447,8 @@
 			baseConfigurationReference = D54FEA1A620681E43F5429DC /* Pods-Liferay-Push.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7H3SPU5TB9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -466,6 +479,8 @@
 			baseConfigurationReference = 7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7H3SPU5TB9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
