@@ -23,7 +23,7 @@
 	var pushNotification: (([String: AnyObject]) -> ())?
 	let session: LRSession
 	var success: (([String: AnyObject]?) -> ())?
-	var portalVersion = 62
+	var portalVersion = 70
 
 	open class func withSession(_ session: LRSession) -> LRPush {
 		return LRPush(session: session)
