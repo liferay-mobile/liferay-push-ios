@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fcu-LD-fog">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="8z6-gt-WJA">
+            <objects>
+                <viewController id="fcu-LD-fog" customClass="ViewController" customModule="PushTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K1L-io-4ml">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ckU-l4-JwR">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Plu-Hu-5Jo">
+                                <rect key="frame" x="40" y="112" width="295" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-uA-ZUB">
+                                <rect key="frame" x="40" y="179" width="295" height="30"/>
+                                <state key="normal" title="Send push"/>
+                                <connections>
+                                    <action selector="sendPushClicked" destination="fcu-LD-fog" eventType="touchUpInside" id="DLr-Xp-TAy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ckU-l4-JwR" firstAttribute="centerY" secondItem="K1L-io-4ml" secondAttribute="centerY" id="4ob-Oa-tPS"/>
+                            <constraint firstItem="Plu-Hu-5Jo" firstAttribute="leading" secondItem="9bd-eX-jlC" secondAttribute="leading" constant="40" id="Fka-vb-Sy8"/>
+                            <constraint firstItem="9bd-eX-jlC" firstAttribute="trailing" secondItem="Plu-Hu-5Jo" secondAttribute="trailing" constant="40" id="O68-ze-dWW"/>
+                            <constraint firstItem="Plu-Hu-5Jo" firstAttribute="centerX" secondItem="K1L-io-4ml" secondAttribute="centerX" id="WSt-Cl-gHb"/>
+                            <constraint firstItem="Plu-Hu-5Jo" firstAttribute="top" secondItem="9bd-eX-jlC" secondAttribute="top" constant="92" id="YRu-dq-KuF"/>
+                            <constraint firstItem="D0f-uA-ZUB" firstAttribute="top" secondItem="Plu-Hu-5Jo" secondAttribute="bottom" constant="37" id="tXX-wx-BNG"/>
+                            <constraint firstItem="D0f-uA-ZUB" firstAttribute="leading" secondItem="9bd-eX-jlC" secondAttribute="leading" constant="40" id="uOl-WG-PPo"/>
+                            <constraint firstItem="9bd-eX-jlC" firstAttribute="trailing" secondItem="D0f-uA-ZUB" secondAttribute="trailing" constant="40" id="wWo-2k-6AK"/>
+                            <constraint firstItem="ckU-l4-JwR" firstAttribute="centerX" secondItem="K1L-io-4ml" secondAttribute="centerX" id="xOv-MS-p7E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9bd-eX-jlC"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingActivityIndicator" destination="ckU-l4-JwR" id="de3-Dq-PDW"/>
+                        <outlet property="pushBodyTextField" destination="Plu-Hu-5Jo" id="eUo-iG-GWY"/>
+                        <outlet property="sendPushButton" destination="D0f-uA-ZUB" id="bbL-Ln-JNd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4T-2M-Bmd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188" y="155"/>
+        </scene>
+    </scenes>
+</document>
