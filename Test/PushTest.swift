@@ -45,11 +45,11 @@ class PushTest: XCTestCase {
 		}
 
 		let auth = LRBasicAuthentication(
-			username: settings["PUSH_USERNAME"],
-			password: settings["PUSH_PASSWORD"])
+			username: settings["PUSH_USERNAME"] ?? "",
+			password: settings["PUSH_PASSWORD"] ?? "")
 
 		session = LRSession(
-			server: settings["PUSH_SERVER"], authentication: auth)
+			server: settings["PUSH_SERVER"] ?? "", authentication: auth)
 
 		timeout = NSString(string: settings["PUSH_TIMEOUT"]!).doubleValue
 	}
