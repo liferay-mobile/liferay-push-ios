@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "Liferay-Push.xctest"
-               BlueprintName = "Liferay-Push"
+               BuildableName = "LiferayPush-Test.xctest"
+               BlueprintName = "LiferayPush-Test"
                ReferencedContainer = "container:Liferay-Push.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "Liferay-Push.xctest"
-               BlueprintName = "Liferay-Push"
+               BuildableName = "LiferayPush-Test.xctest"
+               BlueprintName = "LiferayPush-Test"
                ReferencedContainer = "container:Liferay-Push.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F5AD195388D20070C39A"
-            BuildableName = "Liferay-Push.xctest"
-            BlueprintName = "Liferay-Push"
+            BuildableName = "LiferayPush-Test.xctest"
+            BlueprintName = "LiferayPush-Test"
             ReferencedContainer = "container:Liferay-Push.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,8 +79,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F5AD195388D20070C39A"
-            BuildableName = "Liferay-Push.xctest"
-            BlueprintName = "Liferay-Push"
+            BuildableName = "LiferayPush-Test.xctest"
+            BlueprintName = "LiferayPush-Test"
             ReferencedContainer = "container:Liferay-Push.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

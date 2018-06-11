@@ -27,7 +27,7 @@
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F5AE195388D20070C39A /* Liferay-Push.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Liferay-Push.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* LiferayPush-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LiferayPush-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DAABEFC2E4319339D6EE646 /* Pods-Liferay-Push.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liferay-Push.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liferay-Push/Pods-Liferay-Push.release.xcconfig"; sourceTree = "<group>"; };
 		B275DF121FFE71EF00594880 /* LiferayPush-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiferayPush-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2CCE6761FE92EF500287656 /* LRPushNotificationsDeviceService_v7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPushNotificationsDeviceService_v7.h; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F58A195388D20070C39A /* Liferay-Push.app */,
-				6003F5AE195388D20070C39A /* Liferay-Push.xctest */,
+				6003F5AE195388D20070C39A /* LiferayPush-Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,9 +205,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F5AD195388D20070C39A /* Liferay-Push */ = {
+		6003F5AD195388D20070C39A /* LiferayPush-Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Liferay-Push" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "LiferayPush-Test" */;
 			buildPhases = (
 				D1DA0C787CB85F9482B0A2FF /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
@@ -220,9 +220,9 @@
 			);
 			dependencies = (
 			);
-			name = "Liferay-Push";
+			name = "LiferayPush-Test";
 			productName = "Liferay-PushTests";
-			productReference = 6003F5AE195388D20070C39A /* Liferay-Push.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* LiferayPush-Test.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +257,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F5AD195388D20070C39A /* Liferay-Push */,
+				6003F5AD195388D20070C39A /* LiferayPush-Test */,
 			);
 		};
 /* End PBXProject section */
@@ -513,7 +513,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Liferay-Push" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "LiferayPush-Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,
