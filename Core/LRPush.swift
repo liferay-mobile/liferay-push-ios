@@ -15,7 +15,7 @@
 /**
 * @author Bruno Farache
 */
-@objc
+@objc(LRPush)
 @objcMembers
 open class LRPush: NSObject {
 

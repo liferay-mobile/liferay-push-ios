@@ -12,7 +12,8 @@
 * details.
 */
 
-@objc open class LRPushNotificationServiceWrapper: NSObject {
+@objc(LRPushNotificationServiceWrapper)
+open class LRPushNotificationServiceWrapper: NSObject {
 
 	var service62: LRPushNotificationsDeviceService_v62?
 	var service70: LRPushNotificationsDeviceService_v7?
