@@ -15,7 +15,8 @@
 /**
 * @author Bruno Farache
 */
-@objc open class LRPush: NSObject {
+@objc(LRPush)
+open class LRPush: NSObject {
 
 	open static let PAYLOAD = "payload"
 
