@@ -1,19 +1,20 @@
-//
-//  LiferayPush.h
-//  LiferayPush
-//
-//  Created by Sarai Díaz on 11/06/2018.
-//  Copyright © 2018 Bruno Farache. All rights reserved.
-//
-
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
 #import <UIKit/UIKit.h>
 
-//! Project version number for LiferayPush.
 FOUNDATION_EXPORT double LiferayPushVersionNumber;
-
-//! Project version string for LiferayPush.
 FOUNDATION_EXPORT const unsigned char LiferayPushVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <LiferayPush/PublicHeader.h>
-
-
+#import <LiferayPush/LRPushNotificationsDeviceService_v62.h>
+#import <LiferayPush/LRPushNotificationsDeviceService_v7.h>
