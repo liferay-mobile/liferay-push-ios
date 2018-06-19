@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Liferay-iOS-SDK (7.0.3):
+  - Liferay-iOS-SDK (7.0.14):
     - AFNetworking (= 2.6.3)
 
 DEPENDENCIES:
@@ -28,8 +28,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  Liferay-iOS-SDK: bd5b57db78c3497278f79a97191eb07d78e73a60
+  Liferay-iOS-SDK: 806e942eac81a1942a99ce77d39a2d18e7ae510f
 
-PODFILE CHECKSUM: 22d2e11ff7a5a09e957f229cc23dc9085c7f9459
+PODFILE CHECKSUM: 74f699488edcde5b8818ecf436e298684c200f11
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0
