@@ -15,7 +15,9 @@
 /**
 * @author Bruno Farache
 */
-@objc open class LRPush: NSObject {
+@objc
+@objcMembers
+open class LRPush: NSObject {
 
 	open static let PAYLOAD = "payload"
 
@@ -23,7 +25,7 @@
 	var pushNotification: (([String: AnyObject]) -> ())?
 	let session: LRSession
 	var success: (([String: AnyObject]?) -> ())?
-	var portalVersion = 62
+	var portalVersion = 70
 
 	open class func withSession(_ session: LRSession) -> LRPush {
 		return LRPush(session: session)
@@ -90,26 +92,14 @@
 	}
 
 	open func registerDeviceTokenData(_ deviceTokenData: Data) {
-		var deviceToken = ""
-		let bytes = UnsafeMutablePointer<CUnsignedChar>.allocate(
-			capacity: deviceTokenData.count)
-
-		bytes.initialize(from: deviceTokenData)
-
-		for i in 0 ..< deviceTokenData.count {
-			deviceToken += String(format: "%02X", bytes[i])
-		}
+		let deviceToken = deviceTokenData.map { String(format: "%02.2hhx", $0) }.joined()
 
 		registerDeviceToken(deviceToken)
 	}
 
 	open func registerDeviceToken(_ deviceToken: String) {
-		do {
-			try getService().addPushNotificationsDevice(
-				withToken: deviceToken, platform: _APPLE)
-		}
-		catch {
-		}
+		_ = try? getService().addPushNotificationsDevice(
+			withToken: deviceToken, platform: _APPLE)
 	}
 
 	open func sendToUserId(_ userId: Int, notification: [String: AnyObject]) {
@@ -138,16 +128,11 @@
 	}
 
 	open func unregisterDeviceToken(_ deviceToken: String) {
-		do {
-			try getService().deletePushNotificationsDevice(
-				withToken: deviceToken)
-		}
-		catch {
-		}
+		_ = try? getService().deletePushNotificationsDevice(
+			withToken: deviceToken)
 	}
 
-	open func withPortalVersion(_ portalVersion: Int) -> Self
-	{
+	open func withPortalVersion(_ portalVersion: Int) -> Self {
 		self.portalVersion = portalVersion
 		return self
 	}

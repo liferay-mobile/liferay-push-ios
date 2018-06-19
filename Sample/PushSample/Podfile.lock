@@ -1,0 +1,47 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Liferay-iOS-SDK (7.0.14):
+    - AFNetworking (= 2.6.3)
+  - Liferay-Push (1.0.15):
+    - Liferay-iOS-SDK
+
+DEPENDENCIES:
+  - Liferay-Push (from `../..`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Liferay-iOS-SDK
+
+EXTERNAL SOURCES:
+  Liferay-Push:
+    :path: "../.."
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Liferay-iOS-SDK: 806e942eac81a1942a99ce77d39a2d18e7ae510f
+  Liferay-Push: 214fa58d1c70e08771a3fe2a8a276d3f0ab2a861
+
+PODFILE CHECKSUM: e0c4065d8b164d17e46a59ba1560fa3b116b49e9
+
+COCOAPODS: 1.5.2
