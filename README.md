@@ -6,7 +6,7 @@
 
 * [Setup](#setup)
 * [Use](#use)
-	* [Configuring Server](#configuring-the-server)
+	* [Configuring Server](#configuring-the-server-to-send-push-notifications)
 	* [Registering device](#registering-a-device)
 	* [Sending push notifications](#sending-push-notifications)
 	* [Unregistering device](#unregistering-a-device)
