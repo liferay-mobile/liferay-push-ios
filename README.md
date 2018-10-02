@@ -37,7 +37,7 @@ Together with the library, in this repo you have a [sample](./Sample) where you 
 
 First of all you need to configure your server to be able to send push notifications.
 
-#### Generating iOS APN certificate
+#### Generating iOS APN certificate
 
 * Go to your [apple developer account](https://developer.apple.com/account)
 
