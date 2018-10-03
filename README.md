@@ -48,6 +48,15 @@ First of all you need to configure your server to be able to send push notificat
 #### Installing the certificate in the server
 
 Once you have the .p12 file, the next step will be putting this certificate into the server. First, you have to save the certificate in the computer where the server is running.
+
+##### 7.1
+After doing this, log into the server with a browser and go to `Control Panel` -> `Configuration` -> `System Settings` -> `Notifications` and select the `Apple` System Scope.
+
+You will see a screen similar to this:
+
+<img src="images/settings71.png">
+
+##### 7.0
 After doing this, log into the server with a browser and go to `Configuration` -> `System Settings` and look for `Apple Push Notification Sender`.
 
 You will see a screen similar to this:
