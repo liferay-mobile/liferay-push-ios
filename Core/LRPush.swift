@@ -19,7 +19,7 @@
 @objcMembers
 open class LRPush: NSObject {
 
-	open static let PAYLOAD = "payload"
+    public static let PAYLOAD = "payload"
 
 	var failure: LRFailureBlock?
 	var pushNotification: (([String: AnyObject]) -> ())?
